@@ -13,7 +13,7 @@ $Job = new Job();
 //}
 
 $link = $conn = mysqli_connect("localhost", "outsideadmin", "bLb$?Se%@6@U*5CK", "login_system");
-$row_cnt = mysqli_num_rows(mysqli_query($conn,"SELECT job_id FROM jobs"));
+$row_cnt = mysqli_num_rows($Job->matchJobs($_SESSION['user_id']));
 
 $count = 0;
 ?>
@@ -296,7 +296,8 @@ $count = 0;
                                         } else
                                         {
                                             echo $row_cnt;
-                                        }?> Listings are available</span>
+                                        }
+                                        ?> Listings are available</span>
                                 </div>
                             </div>
                         </div>

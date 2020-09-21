@@ -77,8 +77,11 @@ class Job
         }
 
         return $pdo->lastInsertId();
+
+        
     }
 
+    
     public function deleteJob(int $id)
     {
         global $pdo;
@@ -249,7 +252,6 @@ class Job
             $search_string.=metaphone($word)." ";
         }
 
-        echo $search_string;
 //        echo $search_string."<br>";
         $sql = "SELECT * FROM login_system.jobs WHERE indexing like '%$search_string%'";
 //      $values = array(':search_string', $search_string);
@@ -306,8 +308,6 @@ class Job
             $tests[] = "indexing LIKE '%$word%' ";
         }
         $test_string = implode(' OR ', $tests); 
-
-        echo $test_string;
 
         $sql2 = mysqli_query($conn, "SELECT * from jobs where $test_string ");
 

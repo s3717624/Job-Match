@@ -26,6 +26,95 @@ $sql = "INSERT INTO jobs (job_name, job_short_desc, job_desc, job_skills, job_ed
 if(mysqli_query($conn, $sql)){
     echo "Records added successfully.";
     $_SESSION['job_created'];
+    $servername = "localhost";
+        $username = "outsideadmin";
+        $password = "bLb$?Se%@6@U*5CK";
+        $dbname = "login_system";
+
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+        if (!$conn)
+        {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql1 = "SELECT * FROM login_system.jobs";
+        $res1 = mysqli_query($conn, $sql1);
+
+        if(!$res1)
+        {
+            echo "error ".mysqli_error($conn);
+        }
+
+//        global $pdo;
+//
+//        $sql1 = "SELECT * FROM login_system.jobs";
+//        try {
+//            $res = $pdo->prepare($sql1);
+//            $res->execute();
+//        }
+//        catch (PDOException $e)
+//        {
+//            throw new Exception('Database query error');
+//        }
+//
+//        while($row = $res->fetch(PDO::FETCH_ASSOC))
+        while($row = mysqli_fetch_assoc($res1))
+        {
+            $sound = " ";
+            if ($row['job_name']!=null)
+            {
+                $words = explode(" ", $row['job_name']);
+                foreach($words as $word)
+                {
+                    $sound.=metaphone($word)." ";
+                }
+            }
+
+            if ($row['job_short_desc']!=null)
+            {
+                $words = explode(" ", $row['job_short_desc']);
+                foreach($words as $word)
+                {
+                    $sound.=metaphone($word)." ";
+                }
+            }
+
+            if ($row['job_desc']!=null)
+            {
+                $words = explode(" ", $row['job_desc']);
+                foreach($words as $word)
+                {
+                    $sound.=metaphone($word)." ";
+                }
+            }
+
+            // Free to add others
+
+            $id = $row['job_id'];
+            $sql2 = "UPDATE login_system.jobs SET indexing = '$sound' WHERE job_id = '$id'";
+
+//            $values = array(':sound' => $sound, ':id' => $id);
+
+//            try
+//            {
+//                $res = $pdo->prepare($sql2);
+//                $res->execute($values);
+//            }
+//            catch (PDOException $e)
+//            {
+//                throw new Exception('Database update error');
+//            }
+
+            $res2 = mysqli_query($conn, $sql2);
+
+            if(!$res2)
+            {
+                echo "error ".mysqli_error($conn);
+            }
+
+
+        }
     mysqli_close($conn);
     header("Location: ../");
 } else{
