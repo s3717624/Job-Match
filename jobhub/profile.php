@@ -129,6 +129,8 @@ $_SESSION['currentpage'] = "profile.php";
                             <li><p><?php echo "Full name: ".$Account->getFullNameFromId($_SESSION["user_id"]); ?></p></li><br>
                             <li><p><?php echo "Email: ".$Account->getEmailFromId($_SESSION["user_id"]); ?></p></li><br>
                             <li><p><?php echo "Phone: ".$Account->getPhoneFromId($_SESSION["user_id"]) ;?></p></li><br>
+                            <li><p><?php echo "Skills: ".$Account->getSkillsFromId($_SESSION["user_id"]) ;?></p></li><br>
+                            <li><p><?php echo "Education: ".$Account->getEducationFromId($_SESSION["user_id"]) ;?></p></li><br>
                             <a href="php/profile_edit.php" class="btn btn-success"><span class="glyphicon glyphicon-pencil">
 
                             </span></a>

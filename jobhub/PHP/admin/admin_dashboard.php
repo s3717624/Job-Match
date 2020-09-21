@@ -2,7 +2,6 @@
 session_start();
 
 require_once("../db_inc.php");
-$conn = mysqli_connect("localhost", "outsideadmin", "bLb$?Se%@6@U*5CK", "login_system");
 
 ?>
 

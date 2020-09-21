@@ -3,11 +3,7 @@ session_start();
 require './db_inc.php';
 require './account_class.php';
 
-$conn = mysqli_connect("localhost", "root", "", "login_system");
- 
-if($conn === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
+
 
 $jobname = mysqli_real_escape_string($conn, $_REQUEST['jobname']);
 $jobshortdesc = mysqli_real_escape_string($conn, $_REQUEST['jobshortdesc']);

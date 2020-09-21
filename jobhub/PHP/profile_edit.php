@@ -4,7 +4,6 @@ require_once("account_class.php");
 require_once("db_inc.php");
 
 $Account = new Account();
-$conn = mysqli_connect("localhost", "outsideadmin", "bLb$?Se%@6@U*5CK", "login_system");
 
 if(!(isset($_SESSION['user_id'])))
 {
@@ -13,6 +12,7 @@ if(!(isset($_SESSION['user_id'])))
     else
         header("Location: ../");
 }
+
 
 
 ?>
@@ -191,7 +191,7 @@ if(!(isset($_SESSION['user_id'])))
 
                     <div class="col-lg-12">
                         <div class="popular-search text-center pt-30">
-                            <form method="POST" action="#">
+                            <form method="POST" id="form" name="form" action="#">
                                 <div class="container">
                                     <h1>Update details</h1>
 
@@ -199,15 +199,20 @@ if(!(isset($_SESSION['user_id'])))
                                     <label for="username"><b>Username</b></label>
                                     <input type="text" placeholder="Enter Username" name="username" id="username" value="<?php echo $Account->getNameFromId($_SESSION["user_id"]); ?>" >
 
-                                    <label for="name"><b>Name</b></label>
-                                    <input type="text" placeholder="Enter Password" name="name" id="name" value="<?php echo $Account->getFullNameFromId($_SESSION["user_id"]); ?>">
+                                    <label for="password"><b>Password</b></label>
+                                    <input type="password" placeholder="Enter Password" name="password" id="password" value="">
 
+                                    <label for="name"><b>Name</b></label>
+                                    <input type="text" placeholder="Enter Name" name="fullname" id="fullname" value="<?php echo $Account->getFullNameFromId($_SESSION["user_id"]); ?>">
+                                    
                                     <label for="email"><b>Email</b></label>
                                     <input type="text" placeholder="Enter Email" name="email" id="email" value="<?php echo $Account->getEmailFromId($_SESSION["user_id"]); ?>">
 
                                     <label for="phone"><b>Phone Number</b></label>
                                     <input type="text" placeholder="Enter Phone Number" name="phone" id="phone" value="<?php echo $Account->getPhoneFromId($_SESSION["user_id"]); ?>">
 
+                                    <label for="skills"><b>Skills</b></label><textarea name="skills" id="skills" form="form" > <?php echo $Account->getSkillsFromId($_SESSION["user_id"]); ?></textarea>
+                                    <label for="education"><b>Education</b></label><textarea name="education" id="education" form="form"> <?php echo $Account->getEducationFromId($_SESSION["user_id"]); ?> </textarea>
                                     <hr>
                                     <button type="submit" name="submit" class="registerbtn">Update</button>
                                 </div>
@@ -300,7 +305,7 @@ if(!(isset($_SESSION['user_id'])))
 
 <?php
 
-if (isset($_POST['submit'])) {
+/* if (isset($_POST['submit'])) {
 
     echo $username=$_POST['username'];
     echo $fullname=$_POST['name'];
@@ -317,6 +322,49 @@ if (isset($_POST['submit'])) {
     }else {
         echo "<script>alert('Failed')</script>";
     }
+} */
+
+
+$pass= TRUE;
+
+if (isset($_POST['submit'])) {
+    
+    if ($_POST["password"] == "")
+    {
+        echo '<script>alert("Password field cannot be empty")</script>';
+        $pass = FALSE;
+    } else if (!$Account->isPasswdValid($_POST["password"]))
+    {
+        $pass = FALSE;
+    }
+
+    if ($pass) {
+        try
+        {
+            $Account->editAccount($_SESSION["user_id"],
+                $_POST["username"],
+                $_POST["password"],
+                $_POST["fullname"],
+                $_POST["email"],
+                $_POST["phone"],
+                $_POST["skills"],
+                $_POST["education"],
+                TRUE);
+
+                echo "<script type='text/javascript'> document.location = '../profile.php'; </script>";
+        }
+        catch (Exception $e)
+        {
+            echo $e->getMessage();
+            die();
+        }
+
+        
+    
+    }
 }
+
+
+
 
 ?>
