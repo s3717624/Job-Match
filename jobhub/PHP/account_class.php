@@ -817,6 +817,68 @@ class Account
         return $education;
     }
 
+
+	public function indexAttributes()
+	{
+		$servername = "localhost";
+        $username = "outsideadmin";
+        $password = "bLb$?Se%@6@U*5CK";
+        $dbname = "login_system";
+
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		
+		$sql1 = "SELECT * FROM login_system.accounts";
+        $res1 = mysqli_query($conn, $sql1);
+
+        if(!$res1)
+        {
+            echo "error ".mysqli_error($conn);
+        }
+
+        while($row = mysqli_fetch_assoc($res1))
+        {
+            $sound = " ";
+            if ($row['account_skills']!=null)
+            {
+                $words = explode(" ", $row['account_skills']);
+                foreach($words as $word)
+                {
+                    $sound.=metaphone($word)." ";
+                }
+            }
+
+            if ($row['account_education']!=null)
+            {
+                $words = explode(" ", $row['account_education']);
+                foreach($words as $word)
+                {
+                    $sound.=metaphone($word)." ";
+                }
+            }
+
+
+            // Free to add others
+
+            $id = $row['account_id'];
+            $sql2 = "UPDATE login_system.accounts SET indexing = '$sound' WHERE account_id = '$id'";
+
+
+            $res2 = mysqli_query($conn, $sql2);
+
+            if(!$res2)
+            {
+                echo "error ".mysqli_error($conn);
+            }
+
+
+        }
+
+	}
+
+
+
+
+
 	/* Private class methods */
 	
 	/* Saves the current Session ID with the account ID */

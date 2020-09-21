@@ -24,7 +24,7 @@ $count = 0;
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Job board | Template</title>
+    <title>Job Match - Listing</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -305,8 +305,7 @@ $count = 0;
                             <div class="row">
                                 <?php
 
-                                $ret=mysqli_query($link,"SELECT * FROM jobs");
-                                $cnt=1;
+                                
 
                                 if(isset($_POST['search_query']))
                                 {
@@ -355,6 +354,9 @@ $count = 0;
                                     }
                                 }
                                 else
+
+                                $ret= $Job->matchJobs($_SESSION['user_id']);
+                                $cnt=1;
                                 while($row=mysqli_fetch_array($ret))
                                 {
                                 ?>

@@ -285,6 +285,23 @@ class Job
         return $valid;
     }
 
+    function matchJobs($id)
+    {
+        $servername = "localhost";
+        $username = "outsideadmin";
+        $password = "bLb$?Se%@6@U*5CK";
+        $dbname = "login_system";
+
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+        $sql1 = mysqli_query($conn, "SELECT GROUP_CONCACT(indexing) from accounts where account_id='$id' ");
+        echo $sql1;
+        $sql2 = mysqli_query($conn, "SELECT * from jobs where indexing like '%$sql1%' ");
+
+        return $sql2;
+    }
+    
+    
     function filterSearchKeys($query)
     {
         $query = trim(preg_replace("/(\s+)+/", " ", $query));

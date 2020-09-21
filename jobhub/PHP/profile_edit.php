@@ -351,6 +351,7 @@ if (isset($_POST['submit'])) {
                 $_POST["education"],
                 TRUE);
 
+                $Account->indexAttributes();
                 echo "<script type='text/javascript'> document.location = '../profile.php'; </script>";
         }
         catch (Exception $e)
