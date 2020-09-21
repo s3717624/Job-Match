@@ -12,7 +12,7 @@ $Job = new Job();
 //    header($_SESSION['currentpage']);
 //}
 
-$link = $conn = mysqli_connect("localhost", "outsideadmin", "bLb$?Se%@6@U*5CK", "login_system");
+$link = $conn = mysqli_connect("localhost", "root", "", "login_system");
 $row_cnt = mysqli_num_rows(mysqli_query($conn,"SELECT job_id FROM jobs"));
 
 $count = 0;
