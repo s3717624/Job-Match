@@ -9,6 +9,7 @@ else if(isset($_SESSION['currentpage']))
     header("Location: ".$_SESSION['currentpage']);
 else
     header("Location: ./");
+    
 $_SESSION['currentpage'] = "add_job.php";
 ?>
 

@@ -63,6 +63,34 @@ class Account
 	{
 		return $this->authenticated;
 	}
+
+	public function typeCheck(): string
+	{
+		global $pdo;
+
+		$sql = 'SELECT account_type from accounts where (account_id = :id)';
+
+		$values = array(':id' => $this->id);
+
+		//$row = mysqli_fetch_array($sql);
+		//$usertype = $row["account_type"];
+
+		try
+		{
+			$res = $pdo->prepare($sql);
+			$res->execute($values);
+		}
+		catch (PDOException $e)
+		{
+		   /* If there is a PDO exception, throw a standard exception */
+		   throw new Exception('Database query error');
+		}
+
+		$row = $res->fetch(PDO::FETCH_ASSOC);
+		$usertype = $row['account_type'];
+
+		return $usertype;
+	}
 	
 	/* Add a new account to the system and return its ID (the account_id column of the accounts table) */
 	public function addAccount(string $name, string $passwd, string $type): int
@@ -94,6 +122,7 @@ class Account
 		}
 
 		/* Check if account type is valid - WIP */
+
 
 		/* Finally, add the new account */
 		

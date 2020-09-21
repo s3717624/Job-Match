@@ -56,7 +56,7 @@ $_SESSION['account_created'] = FALSE;
     <form class="form-default" action="./" method="POST">
         <div class="login-form">
             <h1>Your account has been registered.</h1>
-            <p>Click <a href="./">here</a> to return</p>
+            <p>Click <a href="login.php">here</a> to return</p>
         </div>
     </form>
     <!-- /end login form -->
