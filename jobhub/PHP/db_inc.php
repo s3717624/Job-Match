@@ -4,10 +4,10 @@
 $host = 'localhost';
 
 /* MySQL account username */
-$user = 'outsideadmin';
+$user = 'root';
 
 /* MySQL account password */
-$passwd = 'bLb$?Se%@6@U*5CK';
+$passwd = '';
 
 /* The schema you want to use */
 $schema = 'login_system';

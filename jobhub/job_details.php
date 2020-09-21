@@ -28,21 +28,21 @@ $_SESSION['currentpage'] = "job_details.php";
 //$jobsalary = $job.getSalary();
 //$jobapply = $job.getApplyDate();
 
-$conn = mysqli_connect("localhost", "outsideadmin", "bLb$?Se%@6@U*5CK", "login_system");
+$conn = mysqli_connect("localhost", "root", "", "login_system");
 $jobid = $_REQUEST['jobid'];
-$jobinfo = mysqli_query($conn,"SELECT * FROM jobs WHERE jobid = $jobid");
+$jobinfo = mysqli_query($conn,"SELECT * FROM jobs WHERE job_id = $jobid");
 $row = mysqli_fetch_array($jobinfo);
 
-$jobname = $row['jobname'];
-$jobshortdesc = $row['jobshortdesc'];
-$jobdesc = $row['jobdesc'];
-$jobskills = $row['jobskills'];
-$jobeducation = $row['jobeducation'];
-$jobposted = date("Y-m-d", strtotime($row['jobposted']));
-$joblocation = $row['joblocation'];
-$jobnature = $row['jobnature'];
-$jobsalary = $row['jobsalary'];
-$jobapply = $row['jobapply'];
+$jobname = $row['job_name'];
+$jobshortdesc = $row['job_short_desc'];
+$jobdesc = $row['job_desc'];
+$jobskills = $row['job_skills'];
+$jobeducation = $row['job_education'];
+$jobposted = $row['job_posted_date'];
+$joblocation = $row['job_location'];
+$jobnature = $row['job_nature'];
+$jobsalary = $row['job_salary'];
+$jobapply = $row['job_apply_date'];
 
 
 
