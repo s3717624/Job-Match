@@ -305,7 +305,8 @@ $count = 0;
                             <div class="row">
                                 <?php
 
-                                
+                                $ret = $Job->matchJobs($_SESSION['user_id']);
+                                $cnt=1;
 
                                 if(isset($_POST['search_query']))
                                 {
@@ -355,9 +356,8 @@ $count = 0;
                                 }
                                 else
 
-                                $ret= $Job->matchJobs($_SESSION['user_id']);
-                                $cnt=1;
-                                while($row=mysqli_fetch_array($ret))
+                                
+                                while($row = mysqli_fetch_assoc($ret))
                                 {
                                 ?>
 

@@ -249,6 +249,7 @@ class Job
             $search_string.=metaphone($word)." ";
         }
 
+        echo $search_string;
 //        echo $search_string."<br>";
         $sql = "SELECT * FROM login_system.jobs WHERE indexing like '%$search_string%'";
 //      $values = array(':search_string', $search_string);
@@ -294,9 +295,23 @@ class Job
 
         $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        $sql1 = mysqli_query($conn, "SELECT GROUP_CONCACT(indexing) from accounts where account_id='$id' ");
-        echo $sql1;
-        $sql2 = mysqli_query($conn, "SELECT * from jobs where indexing like '%$sql1%' ");
+        $sql1 = mysqli_query($conn, "SELECT indexing from accounts where account_id='$id' ");
+        $row = mysqli_fetch_assoc($sql1);
+        $match = $row["indexing"];
+
+        $words = preg_split('/\s+/', $match);
+        $tests = array();
+
+        foreach ($words as $word) {
+            $tests[] = "indexing LIKE '%$word%' ";
+        }
+        $test_string = implode(' OR ', $tests); 
+
+        echo $test_string;
+
+        $sql2 = mysqli_query($conn, "SELECT * from jobs where $test_string ");
+
+        
 
         return $sql2;
     }
