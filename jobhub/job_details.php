@@ -28,7 +28,7 @@ $_SESSION['currentpage'] = "job_details.php";
 //$jobsalary = $job.getSalary();
 //$jobapply = $job.getApplyDate();
 
-$conn = mysqli_connect("localhost", "root", "", "login_system");
+$conn = mysqli_connect("localhost", "outsideadmin", "bLb$?Se%@6@U*5CK", "login_system");
 $jobid = $_REQUEST['jobid'];
 $jobinfo = mysqli_query($conn,"SELECT * FROM jobs WHERE job_id = $jobid");
 $row = mysqli_fetch_array($jobinfo);
