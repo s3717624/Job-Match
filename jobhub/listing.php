@@ -15,6 +15,16 @@ $Job = new Job();
 $link = $conn = mysqli_connect("localhost", "outsideadmin", "bLb$?Se%@6@U*5CK", "login_system");
 $row_cnt = mysqli_num_rows(mysqli_query($conn,"SELECT job_id FROM jobs"));
 
+if(isset($_SESSION['user_id']))
+{
+    if ($Account->getTypeFromId($_SESSION['user_id']) == "applicants")
+    {
+        if (isset($_SESSION['currentpage']))
+            header("Location: " . $_SESSION['currentpage']);
+        else
+            header("Location: ./");
+    }
+}
 $count = 0;
 ?>
 
