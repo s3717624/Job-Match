@@ -124,7 +124,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/jobhub/add_job.php</url>
-          <line>13</line>
+          <line>14</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
