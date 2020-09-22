@@ -77,14 +77,15 @@ catch (Exception $e)
     die();
 }
 
-$usrtype = $account->typeCheck();
+$_SESSION["user_id"] = $account->getId();
+
+$usrtype = $account->typeCheck($_SESSION["user_id"]);
 
 if ($login)
 {
     echo 'Authentication successful (session login).<br>';
     echo 'Account ID: ' . $account->getId() . '<br>';
     echo 'Account name: ' . $account->getName() . '<br>';
-    $_SESSION["user_id"] = $account->getId();
     
     if ($usrtype == "employers") {
         header("Location: ../profile.php");
