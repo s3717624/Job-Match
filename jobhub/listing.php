@@ -21,7 +21,7 @@ $def_cnt = mysqli_num_rows($alljobs);
 
 if(isset($_SESSION['user_id']))
 {
-    if ($Account->getTypeFromId($_SESSION['user_id']) == "applicants")
+    if ($Account->typeCheck($_SESSION['user_id']) == "applicants")
     {
         if (isset($_SESSION['currentpage']))
             header("Location: " . $_SESSION['currentpage']);
