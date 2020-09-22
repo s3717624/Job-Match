@@ -64,32 +64,38 @@ class Account
 		return $this->authenticated;
 	}
 
-	public function typeCheck(): string
+	public function typeCheck($id): string
 	{
-		global $pdo;
+        global $pdo;
 
-		$sql = 'SELECT account_type from accounts where (account_id = :id)';
+        if (!$this->isIdValid($id))
+        {
+            throw new Exception('Invalid account ID');
+        }
 
-		$values = array(':id' => $this->id);
+        $type = null;
 
-		//$row = mysqli_fetch_array($sql);
-		//$usertype = $row["account_type"];
+        $query = 'SELECT account_type FROM login_system.accounts WHERE (account_id = :id)';
+        $values = array(':id' => $id);
 
-		try
-		{
-			$res = $pdo->prepare($sql);
-			$res->execute($values);
-		}
-		catch (PDOException $e)
-		{
-		   /* If there is a PDO exception, throw a standard exception */
-		   throw new Exception('Database query error');
-		}
+        try
+        {
+            $res = $pdo->prepare($query);
+            $res->execute($values);
+        }
+        catch (PDOException $e)
+        {
+            throw new Exception('Database query error');
+        }
 
-		$row = $res->fetch(PDO::FETCH_ASSOC);
-		$usertype = $row['account_type'];
+        $row = $res->fetch(PDO::FETCH_ASSOC);
 
-		return $usertype;
+        if (is_array($row))
+        {
+            $type = $row['account_type'];
+        }
+
+        return $type;
 	}
 	
 	/* Add a new account to the system and return its ID (the account_id column of the accounts table) */
@@ -871,42 +877,6 @@ class Account
             }
         }
 	}
-
-    /* Retrieves type from account ID */
-    public function getTypeFromId(int $id): ?string
-    {
-        global $pdo;
-
-        if (!$this->isIdValid($id))
-        {
-            throw new Exception('Invalid account ID');
-        }
-
-        $type = null;
-
-        $query = 'SELECT account_type FROM login_system.accounts WHERE (account_id = :id)';
-        $values = array(':id' => $id);
-
-        try
-        {
-            $res = $pdo->prepare($query);
-            $res->execute($values);
-        }
-        catch (PDOException $e)
-        {
-            throw new Exception('Database query error');
-        }
-
-        $row = $res->fetch(PDO::FETCH_ASSOC);
-
-        if (is_array($row))
-        {
-            $type = $row['account_type'];
-        }
-
-        return $type;
-    }
-
 
 	/* Private class methods */
 	
