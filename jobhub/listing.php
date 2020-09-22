@@ -13,9 +13,23 @@ $Job = new Job();
 //}
 
 $link = $conn = mysqli_connect("localhost", "outsideadmin", "bLb$?Se%@6@U*5CK", "login_system");
+
 $row_cnt = mysqli_num_rows($Job->matchJobs($_SESSION['user_id']));
 $alljobs = mysqli_query($conn,"SELECT * FROM jobs");
 $def_cnt = mysqli_num_rows($alljobs);
+
+
+if(isset($_SESSION['user_id']))
+{
+    if ($Account->getTypeFromId($_SESSION['user_id']) == "applicants")
+    {
+        if (isset($_SESSION['currentpage']))
+            header("Location: " . $_SESSION['currentpage']);
+        else
+            header("Location: ./");
+    }
+}
+
 $count = 0;
 ?>
 

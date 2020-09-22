@@ -818,6 +818,7 @@ class Account
     }
 
 
+
 	public function indexAttributes()
 	{
 		$servername = "localhost";
@@ -878,6 +879,40 @@ class Account
 
 
 
+    /* Retrieves phone from account ID */
+    public function getTypeFromId(int $id): ?string
+    {
+        global $pdo;
+
+        if (!$this->isIdValid($id))
+        {
+            throw new Exception('Invalid account ID');
+        }
+
+        $phone = null;
+
+        $query = 'SELECT account_type FROM login_system.accounts WHERE (account_id = :id)';
+        $values = array(':id' => $id);
+
+        try
+        {
+            $res = $pdo->prepare($query);
+            $res->execute($values);
+        }
+        catch (PDOException $e)
+        {
+            throw new Exception('Database query error');
+        }
+
+        $row = $res->fetch(PDO::FETCH_ASSOC);
+
+        if (is_array($row))
+        {
+            $phone = $row['account_type'];
+        }
+
+        return $phone;
+    }
 
 
 	/* Private class methods */
