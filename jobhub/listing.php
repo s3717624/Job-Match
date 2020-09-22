@@ -30,6 +30,8 @@ if(isset($_SESSION['user_id']))
     }
 }
 
+$_SESSION['currentpage'] = './listing.php';
+
 $count = 0;
 ?>
 
