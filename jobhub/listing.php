@@ -13,7 +13,11 @@ $Job = new Job();
 //}
 
 $link = $conn = mysqli_connect("localhost", "outsideadmin", "bLb$?Se%@6@U*5CK", "login_system");
-$row_cnt = mysqli_num_rows(mysqli_query($conn,"SELECT job_id FROM jobs"));
+
+$row_cnt = mysqli_num_rows($Job->matchJobs($_SESSION['user_id']));
+$alljobs = mysqli_query($conn,"SELECT * FROM jobs");
+$def_cnt = mysqli_num_rows($alljobs);
+
 
 if(isset($_SESSION['user_id']))
 {
@@ -25,6 +29,7 @@ if(isset($_SESSION['user_id']))
             header("Location: ./");
     }
 }
+
 $count = 0;
 ?>
 
@@ -34,7 +39,7 @@ $count = 0;
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Job board | Template</title>
+    <title>Job Match - Listing</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -291,6 +296,15 @@ $count = 0;
                     <div class="col-xl-8 col-lg-8 col-md-6">
                         <div class="row">
                             <div class="col-lg-12">
+                            <form action="listing.php" name="alljobsform" method="post">
+                                <input class ="page-link" type="submit" id ="alljobsbtn" name="alljobsbtn" value="Show all jobs">
+                            </form>
+
+                            <form action="listing.php" name="matchform"method="post">
+                                <input class ="page-link" type="submit" id ="matchbtn" name="matchbtn" value="Match jobs">
+                            </form>
+
+                            
                                 <div class="count mb-35">
                                     <span><?php
                                         if(isset($_POST['search_query'])){
@@ -303,10 +317,18 @@ $count = 0;
                                                 }
                                             }
                                             echo $count;
-                                        } else
+                                            echo " Listing(s) are available";
+                                        } 
+                                        elseif(isset($_POST['alljobsbtn'])){
+                                            echo $def_cnt;
+                                            echo " Listing(s) are available";
+                                        }
+                                        else
                                         {
                                             echo $row_cnt;
-                                        }?> Listings are available</span>
+                                            echo " Match(es) founds";
+                                        }
+                                        ?> </span>
                                 </div>
                             </div>
                         </div>
@@ -315,9 +337,11 @@ $count = 0;
                             <div class="row">
                                 <?php
 
-                                $ret=mysqli_query($link,"SELECT * FROM jobs");
+                                $ret = $Job->matchJobs($_SESSION['user_id']);
                                 $cnt=1;
+                                
 
+                                /* show searched code */
                                 if(isset($_POST['search_query']))
                                 {
                                     $results = $Job->searchJob($_POST['search_query']);
@@ -364,8 +388,53 @@ $count = 0;
                                         }
                                     }
                                 }
+
+                                elseif(isset($_POST['alljobsbtn'])) {
+                                    while($row = mysqli_fetch_assoc($alljobs))
+                                {
+                                ?>
+
+                                <div class="col-lg-6">
+                                    <!-- Single -->
+                                    <div class="properties properties2 mb-30">
+                                        <div class="properties__card">
+                                            <div class="properties__img overlay1">
+                                                <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
+                                                <div class="img-text">
+                                                    
+                                                </div>
+                                                <div class="icon">
+                                                    <img src="assets/img/gallery/categori_icon1.png" alt=""> 
+                                                </div>
+                                            </div>
+                                            <div class="properties__caption">
+                                                <h3><a href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a></h3>
+                                                <p><?php echo $row['job_short_desc'];?></p>
+                                            </div>
+                                            <div class="properties__footer d-flex justify-content-between align-items-center">
+                                                <div class="restaurant-name">
+                                                    <img src="assets/img/gallery/restaurant-icon.png" alt="">
+                                                    <h3>$<?php echo $row['job_salary'];?></h3>
+                                                </div>
+                                                <div class="heart">
+                                                    <img src="assets/img/gallery/heart1.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <?php $cnt=$cnt+1; 
+                                }
+                                }
+
+
+                                
+                                /* show matched code */
                                 else
-                                while($row=mysqli_fetch_array($ret))
+
+                                
+                                while($row = mysqli_fetch_assoc($ret))
                                 {
                                 ?>
 

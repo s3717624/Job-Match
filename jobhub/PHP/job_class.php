@@ -77,8 +77,11 @@ class Job
         }
 
         return $pdo->lastInsertId();
+
+        
     }
 
+    
     public function deleteJob(int $id)
     {
         global $pdo;
@@ -285,6 +288,35 @@ class Job
         return $valid;
     }
 
+    function matchJobs($id)
+    {
+        $servername = "localhost";
+        $username = "outsideadmin";
+        $password = "bLb$?Se%@6@U*5CK";
+        $dbname = "login_system";
+
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+        $sql1 = mysqli_query($conn, "SELECT indexing from accounts where account_id='$id' ");
+        $row = mysqli_fetch_assoc($sql1);
+        $match = $row["indexing"];
+
+        $words = preg_split('/\s+/', $match);
+        $tests = array();
+
+        foreach ($words as $word) {
+            $tests[] = "indexing LIKE '%$word%' ";
+        }
+        $test_string = implode(' OR ', $tests); 
+
+        $sql2 = mysqli_query($conn, "SELECT * from jobs where $test_string ");
+
+        
+
+        return $sql2;
+    }
+    
+    
     function filterSearchKeys($query)
     {
         $query = trim(preg_replace("/(\s+)+/", " ", $query));
