@@ -211,8 +211,8 @@ if(!(isset($_SESSION['user_id'])))
                                     <label for="phone"><b>Phone Number</b></label>
                                     <input type="text" placeholder="Enter Phone Number" name="phone" id="phone" value="<?php echo $Account->getPhoneFromId($_SESSION["user_id"]); ?>">
 
-                                    <label for="skills"><b>Skills</b></label><textarea name="skills" id="skills" form="form" > <?php echo $Account->getSkillsFromId($_SESSION["user_id"]); ?></textarea>
-                                    <label for="education"><b>Education</b></label><textarea name="education" id="education" form="form"> <?php echo $Account->getEducationFromId($_SESSION["user_id"]); ?> </textarea>
+                                    <label for="skills"><b>Skills</b></label><textarea name="skills" id="skills" form="form" ><?php echo $Account->getSkillsFromId($_SESSION["user_id"]);?></textarea>
+                                    <label for="education"><b>Education</b></label><textarea name="education" id="education" form="form"><?php echo $Account->getEducationFromId($_SESSION["user_id"]); ?></textarea>
                                     <hr>
                                     <button type="submit" name="submit" class="registerbtn">Update</button>
                                 </div>
@@ -351,6 +351,7 @@ if (isset($_POST['submit'])) {
                 $_POST["education"],
                 TRUE);
 
+                $Account->indexAttributes();
                 echo "<script type='text/javascript'> document.location = '../profile.php'; </script>";
         }
         catch (Exception $e)
