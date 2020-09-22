@@ -63,6 +63,34 @@ class Account
 	{
 		return $this->authenticated;
 	}
+
+	public function typeCheck(): string
+	{
+		global $pdo;
+
+		$sql = 'SELECT account_type from accounts where (account_id = :id)';
+
+		$values = array(':id' => $this->id);
+
+		//$row = mysqli_fetch_array($sql);
+		//$usertype = $row["account_type"];
+
+		try
+		{
+			$res = $pdo->prepare($sql);
+			$res->execute($values);
+		}
+		catch (PDOException $e)
+		{
+		   /* If there is a PDO exception, throw a standard exception */
+		   throw new Exception('Database query error');
+		}
+
+		$row = $res->fetch(PDO::FETCH_ASSOC);
+		$usertype = $row['account_type'];
+
+		return $usertype;
+	}
 	
 	/* Add a new account to the system and return its ID (the account_id column of the accounts table) */
 	public function addAccount(string $name, string $passwd, string $type): int
@@ -94,6 +122,7 @@ class Account
 		}
 
 		/* Check if account type is valid - WIP */
+
 
 		/* Finally, add the new account */
 		
@@ -172,7 +201,7 @@ class Account
 	}
 	
 	/* Edit an account (selected by its ID). The name, the password and the status (enabled/disabled) can be changed */
-	public function editAccount(int $id, string $name, string $passwd, string $full_name, string $email, string $phone, bool $enabled)
+	public function editAccount(int $id, string $name, string $passwd, string $full_name, string $email, string $phone, string $skills, string $education, bool $enabled)
 	{
 		/* Global $pdo object */
 		global $pdo;
@@ -220,7 +249,9 @@ class Account
                     account_passwd = :passwd, 
                     account_fullname = :fullname, 
                     account_email = :email, 
-                    account_phone = :phone, 
+                    account_phone = :phone,
+					account_skills = :skills,
+					account_education = :education, 
                     account_enabled = :enabled 
                     WHERE account_id = :id';
 		
@@ -236,7 +267,9 @@ class Account
             ':passwd' => $hash,
             ':fullname' => $full_name,
             ':email' => $email,
-            ':phone' => $phone,
+			':phone' => $phone,
+			':skills' => $skills,
+			':education' => $education,
             ':enabled' => $intEnabled,
             ':id' => $id
         );
@@ -714,6 +747,74 @@ class Account
         }
 
         return $phone;
+	}
+	
+	public function getSkillsFromId(int $id): ?string
+    {
+        global $pdo;
+
+        if (!$this->isIdValid($id))
+        {
+            throw new Exception('Invalid account ID');
+        }
+
+        $skills = null;
+
+        $query = 'SELECT account_skills FROM login_system.accounts WHERE (account_id = :id)';
+        $values = array(':id' => $id);
+
+        try
+        {
+            $res = $pdo->prepare($query);
+            $res->execute($values);
+        }
+        catch (PDOException $e)
+        {
+            throw new Exception('Database query error');
+        }
+
+        $row = $res->fetch(PDO::FETCH_ASSOC);
+
+        if (is_array($row))
+        {
+            $skills = $row['account_skills'];
+        }
+
+        return $skills;
+	}
+	
+	public function getEducationFromId(int $id): ?string
+    {
+        global $pdo;
+
+        if (!$this->isIdValid($id))
+        {
+            throw new Exception('Invalid account ID');
+        }
+
+        $education = null;
+
+        $query = 'SELECT account_education FROM login_system.accounts WHERE (account_id = :id)';
+        $values = array(':id' => $id);
+
+        try
+        {
+            $res = $pdo->prepare($query);
+            $res->execute($values);
+        }
+        catch (PDOException $e)
+        {
+            throw new Exception('Database query error');
+        }
+
+        $row = $res->fetch(PDO::FETCH_ASSOC);
+
+        if (is_array($row))
+        {
+            $education = $row['account_education'];
+        }
+
+        return $education;
     }
 
     /* Retrieves phone from account ID */

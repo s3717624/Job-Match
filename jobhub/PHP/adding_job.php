@@ -20,6 +20,8 @@ $jobnature = mysqli_real_escape_string($conn, $_REQUEST['jobnature']);
 $jobsalary = mysqli_real_escape_string($conn, $_REQUEST['jobsalary']);
 $ID = mysqli_real_escape_string($conn, $_REQUEST['sessionid']);
 
+$jobapply = date("Y-m-d", strtotime($jobapply));
+
 $sql = "INSERT INTO jobs (job_name, job_short_desc, job_desc, job_skills, job_education, job_apply_date, job_location, job_nature, job_salary, employer_id) VALUES ('$jobname', '$jobshortdesc', '$jobdesc', '$jobskills', '$jobeducation', '$jobapply', '$joblocation', '$jobnature', '$jobsalary', '$ID')";
 if(mysqli_query($conn, $sql)){
     echo "Records added successfully.";

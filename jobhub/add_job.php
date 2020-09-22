@@ -9,6 +9,7 @@ else if(isset($_SESSION['currentpage']))
     header("Location: ".$_SESSION['currentpage']);
 else
     header("Location: ./");
+    
 $_SESSION['currentpage'] = "add_job.php";
 ?>
 
@@ -172,92 +173,9 @@ $_SESSION['currentpage'] = "add_job.php";
                                     <p>Job Description</p>
                                     <div style="text-align:center;"><textarea id="jobdesc" name="jobdesc" rows="10" cols="60" form="addjobform" placeholder="Job description"></textarea></div><br><br>
                                     <p>Job Skills</p>
-                                    <div style="text-align:center;">
-                                        <input style="margin: auto; width: 550px;" type="text" id="jobskills" name="jobskills" placeholder="Job skill"><br><br id="break1">
-                                        <input type="button" id="addTextBox" value="Add Skill" onClick="incrementCount()">
-                                        <!-- <input type="button" id="removeTextBox" value="Remove Skill" onClick="decCount()"> -->
-                                        <script language="javascript" type="text/javascript">
-                                            var count1 = 0;
-                                            function incrementCount() {
-                                                //document.addjobform.count.value = parseInt(document.frm.count.value) + 1;
-                                                count1++;
-                                                addTextBox();
-                                            }
-
-                                            // function decCount() {
-                                            //     //document.addjobform.count.value = parseInt(document.frm.count.value) - 1;
-                                            //     if(count1>=1)
-                                            //         count1--;
-                                            //     removeTextBox();
-                                            // }
-
-                                            function addTextBox() {
-                                                var form = document.addjobform;
-                                                // form.appendChild(document.createElement('div')).innerHTML
-                                                //     = "<div style=\"text-align:center;\">" +
-                                                //         "<input style=\"margin: auto; width: 550px;\" " +
-                                                //         "type=\"text\" " +
-                                                //         "name=\"jobskills\" " +
-                                                //         "placeholder=\"Job skill\">" +
-                                                //     "</div><br><br>";
-                                                form.appendChild($("#break1").after("<div style=\"text-align:center;\">" +
-                                                    "<input style=\"margin: auto; width: 550px;\"" +
-                                                    "type=\"text\"" +
-                                                    "name=\"jobskills\"" +
-                                                    "placeholder=\"Job skill\"><br><br>"));
-                                            }
-
-                                            // function removeTextBox() {
-                                            //     var form = document.addjobform;
-                                            //     //if (form.lastChild.nodeName.toLowerCase() == '$("#break1")')
-                                            //     if(count1>=1)
-                                            //         form.removeChild(form.lastChild);
-                                            // }
-                                        </script>
-                                    </div><br><br>
+                                    <div style="text-align:center;"><textarea id="jobskills" name="jobskills" rows="5" cols="60" form="addjobform" placeholder="Skills needed for the job"></textarea></div><br><br>
                                     <p>Job Education</p>
-                                    <div style="text-align:center;">
-                                        <input style="margin: auto; width: 550px;" type="text" id="jobeducation" name="jobeducation" placeholder="Job education"><br><br id="break2">
-                                        <input type="button" id="addTextBox" value="Add Skill" onClick="incrementCount2()">
-<!--                                        <input type="button" id="removeTextBox" value="Remove Skill" onClick="decCount2()">-->
-                                        <script language="javascript" type="text/javascript">
-                                            var count2 = 0;
-                                            function incrementCount2() {
-                                                //document.addjobform.count.value = parseInt(document.frm.count.value) + 1;
-                                                count2++;
-                                                addTextBox2();
-                                            }
-
-                                            // function decCount2() {
-                                            //     //document.addjobform.count.value = parseInt(document.frm.count.value) - 1;
-                                            //     if(count2>=1)
-                                            //         count2--;
-                                            //     removeTextBox2();
-                                            // }
-
-                                            function addTextBox2() {
-                                                var form = document.addjobform;
-                                                // form.appendChild(document.createElement('div')).innerHTML
-                                                //     = "<div style=\"text-align:center;\">" +
-                                                //         "<input style=\"margin: auto; width: 550px;\" " +
-                                                //         "type=\"text\" " +
-                                                //         "name=\"jobskills\" " +
-                                                //         "placeholder=\"Job skill\">" +
-                                                //     "</div><br><br>";
-                                                form.appendChild($("#break2").after("<div style=\"text-align:center;\">" +
-                                                    "<input style=\"margin: auto; width: 550px;\"" +
-                                                    "type=\"text\"" +
-                                                    "name=\"jobeducation\"" +
-                                                    "placeholder=\"Job education\"><br><br>"));
-                                            }
-
-                                            // function removeTextBox2() {
-                                            //     var form = document.addjobform;
-                                            //     if (form.lastChild.nodeName.toLowerCase() == 'div2')
-                                            //         form.removeChild(form.lastChild);
-                                            // }
-                                        </script>
-                                    </div><br><br>
+                                    <div style="text-align:center;"><textarea id="jobeducation" name="jobeducation" rows="5" cols="60" form="addjobform" placeholder="Education needed for the job"></textarea></div><br><br>
                                     <p style="color: lightblue;">Fields marked with <span style="color: red;">*</span> are required.</p>
                                     <input type="hidden" id="sessionid" name="sessionid" value=<?php echo $_SESSION["user_id"]; ?>>
                                     <input type="submit" name="submit" id="submitbutton" value="Add job"b>
