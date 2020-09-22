@@ -817,8 +817,6 @@ class Account
         return $education;
     }
 
-
-
 	public function indexAttributes()
 	{
 		$servername = "localhost";
@@ -871,15 +869,10 @@ class Account
             {
                 echo "error ".mysqli_error($conn);
             }
-
-
         }
-
 	}
 
-
-
-    /* Retrieves phone from account ID */
+    /* Retrieves type from account ID */
     public function getTypeFromId(int $id): ?string
     {
         global $pdo;
@@ -889,7 +882,7 @@ class Account
             throw new Exception('Invalid account ID');
         }
 
-        $phone = null;
+        $type = null;
 
         $query = 'SELECT account_type FROM login_system.accounts WHERE (account_id = :id)';
         $values = array(':id' => $id);
@@ -908,10 +901,10 @@ class Account
 
         if (is_array($row))
         {
-            $phone = $row['account_type'];
+            $type = $row['account_type'];
         }
 
-        return $phone;
+        return $type;
     }
 
 
