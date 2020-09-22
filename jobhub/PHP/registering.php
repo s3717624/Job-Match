@@ -89,6 +89,8 @@ if ($pass)
             $_POST["fullname"],
             $_POST["email"],
             $_POST["phone"],
+            "",
+            "",
             TRUE);
     }
     catch (Exception $e)

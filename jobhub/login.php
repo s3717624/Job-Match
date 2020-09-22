@@ -85,7 +85,7 @@ $_SESSION['current_page'] = "login.php";
     <!-- Preloader Start-->
 
 
-<main class="login-body" data-vide-bg="assets/img/login-bg.mp4">
+<main class="login-body" style="background-color: teal;">
     <!-- Login Admin -->
     <form class="form-default" action="php/logging_in.php" method="POST">
         
