@@ -856,6 +856,7 @@ class Account
                 }
             }
 
+			$sound = trim($sound);
 
             // Free to add others
 
