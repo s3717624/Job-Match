@@ -47,27 +47,55 @@ $checked1 = $checked2 = $checked3 = $checked4 = $checked5 = null;
 $lowerprice = 0;
 $upperprice = 999999999;
 
-if(isset($_POST['pricerange']))
+if(isset($_GET['pricerange']))
 {
-    if($_POST['pricerange'] == "50korless")
+    if($_GET['pricerange'] == "50korless")
     {
         $upperprice = 50000;
-    } else if ($_POST['pricerange'] == "50kto75k")
+    } else if ($_GET['pricerange'] == "50kto75k")
     {
         $lowerprice = 50000;
         $upperprice = 75000;
-    } else if ($_POST['pricerange'] == "75kto100k")
+    } else if ($_GET['pricerange'] == "75kto100k")
     {
         $lowerprice = 75000;
         $upperprice = 100000;
-    } else if ($_POST['pricerange'] == "100kto125k")
+    } else if ($_GET['pricerange'] == "100kto125k")
     {
         $lowerprice = 100000;
         $upperprice = 125000;
-    } else if ($_POST['pricerange'] == "125kormore")
+    } else if ($_GET['pricerange'] == "125kormore")
     {
         $lowerprice = 125000;
     }
+}
+
+$nature1 = $nature2 = $nature3 = null;
+
+$jobnature = null;
+
+if(isset($_GET['jobnature']))
+{
+    if($_GET['jobnature'] == "fulltime")
+    {
+        $jobnature = "Full time";
+    } else if($_GET['jobnature'] == "parttime")
+    {
+        $jobnature = "Part time";
+    } else if($_GET['jobnature'] == "casual")
+    {
+        $jobnature = "Casual";
+    }
+}
+
+if(isset($_GET['searchfield']))
+{
+    $searchfield = $_GET['searchfield'];
+}
+
+if(isset($_GET['search_query']))
+{
+    $searchfield = $_GET['search_query'];
 }
 ?>
 
@@ -195,7 +223,7 @@ if(isset($_POST['pricerange']))
                                 <h1>Explore what you are finding</h1>
                             </div>
                             <!--Hero form -->
-                            <form id="jobsearch" action="listing.php" class="search-box mb-100" method="POST">
+                            <form id="jobsearch" action="listing.php" class="search-box mb-100" method="GET">
                                 <div class="input-form">
                                     <input type="text" name="search_query" placeholder="What are you finding?">
                                 </div>
@@ -234,7 +262,7 @@ if(isset($_POST['pricerange']))
                         </div>
                         <!-- Job Category Listing start -->
                         <div class="category-listing mb-50">
-                            <form action="./listing.php" method="POST" id="advancedfilter">
+                            <form action="./listing.php" method="GET" id="advancedfilter">
                             <!-- single one -->
                             <div class="single-listing">
                                 <!-- Select City items start -->
@@ -279,21 +307,21 @@ if(isset($_POST['pricerange']))
                                         <h4>Price range</h4>
                                     </div>
                                     <?php
-                                        if(isset($_POST['pricerange']))
+                                        if(isset($_GET['pricerange']))
                                         {
-                                            if($_POST['pricerange'] == '50korless')
+                                            if($_GET['pricerange'] == '50korless')
                                             {
                                                 $checked1 = "checked";
-                                            } else if($_POST['pricerange'] == '50kto75k')
+                                            } else if($_GET['pricerange'] == '50kto75k')
                                             {
                                                 $checked2 = "checked";
-                                            } else if($_POST['pricerange'] == '75kto100k')
+                                            } else if($_GET['pricerange'] == '75kto100k')
                                             {
                                                 $checked3 = "checked";
-                                            } else if($_POST['pricerange'] == '100kto125k')
+                                            } else if($_GET['pricerange'] == '100kto125k')
                                             {
                                                 $checked4 = "checked";
-                                            } else if($_POST['pricerange'] == '125kormore')
+                                            } else if($_GET['pricerange'] == '125kormore')
                                             {
                                                 $checked5 = "checked";
                                             }
@@ -330,32 +358,46 @@ if(isset($_POST['pricerange']))
                                 </div>
                                 <!-- select-Categories End -->
                                 <!-- select-Categories start -->
-                                <div class="select-Categories">
-                                    <div class="small-section-tittle2 mb-20">
-                                        <h4>Tags</h4>
-                                    </div>
-                                    <label class="container">Wireless Internet
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Accepts Credit Cards
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Smoking Allowed
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Parking Street
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Coupons
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div><br>
 
+                                <h4>Job nature</h4>
+                                <?php
+                                if(isset($_GET['jobnature']))
+                                {
+                                    if($_GET['jobnature'] == 'fulltime')
+                                    {
+                                        $nature1 = "checked";
+                                    } else if($_GET['jobnature'] == 'parttime')
+                                    {
+                                        $nature2 = "checked";
+                                    } else if($_GET['jobnature'] == 'casual')
+                                    {
+                                        $nature3 = "checked";
+                                    }
+                                }
+
+                                echo "<label>
+                                        <input type='radio' name='jobnature' value='fulltime' onclick='' " . $nature1 . ">
+                                            Full time
+                                        </label><br>
+                                    <label>
+                                        <input type='radio' name='jobnature' value='parttime' onclick='' " . $nature2 . ">
+                                            Part time
+                                        </label><br>
+                                    <label>
+                                        <input type='radio' name='jobnature' value='casual' onclick='' " . $nature3 . ">
+                                            Casual
+                                        </label><br>
+                             
+                                        Test: ".$jobnature."
+                                        ";
+                                ?><br>
+
+                                <?php
+                                if(isset($searchfield))
+                                {
+                                    echo "<input type=\"hidden\" id=\"searchfield\" name=\"searchfield\" value=".$searchfield.">";
+                                }
+                                ?>
                                 <input type="submit" value="Go">
                                 <!-- select-Categories End -->
                             </form>
@@ -367,19 +409,19 @@ if(isset($_POST['pricerange']))
                     <div class="col-xl-8 col-lg-8 col-md-6">
                         <div class="row">
                             <div class="col-lg-12">
-                            <form action="listing.php" name="alljobsform" method="post">
+                            <form action="listing.php" name="alljobsform" method="get">
                                 <input class ="page-link" type="submit" id ="alljobsbtn" name="alljobsbtn" value="Show all jobs">
                             </form>
 
-                            <form action="listing.php" name="matchform"method="post">
+                            <form action="listing.php" name="matchform"method="get">
                                 <input class ="page-link" type="submit" id ="matchbtn" name="matchbtn" value="Match jobs">
                             </form>
 
                             
                                 <div class="count mb-35">
                                     <span><?php
-                                        if(isset($_POST['search_query'])){
-                                            $results = $Job->searchJob($_POST['search_query']);
+                                        if(isset($_GET['search_query'])){
+                                            $results = $Job->searchJob($_GET['search_query']);
 
                                             if(mysqli_num_rows($results)>0)
                                             {
@@ -392,13 +434,20 @@ if(isset($_POST['pricerange']))
                                                     {
                                                         continue;
                                                     }
+                                                    if(isset($jobnature))
+                                                    {
+                                                        if(!($row['job_nature'] == $jobnature))
+                                                        {
+                                                            continue;
+                                                        }
+                                                    }
                                                     $count++;
                                                 }
                                             }
                                             echo $count;
                                             echo " Listing(s) are available";
                                         } 
-                                        elseif(isset($_POST['alljobsbtn'])){
+                                        elseif(isset($_GET['alljobsbtn'])){
                                             echo $def_cnt;
                                             echo " Listing(s) are available";
                                         }
@@ -416,6 +465,13 @@ if(isset($_POST['pricerange']))
                                                     if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice))
                                                     {
                                                         continue;
+                                                    }
+                                                    if(isset($jobnature))
+                                                    {
+                                                        if(!($row['job_nature'] == $jobnature))
+                                                        {
+                                                            continue;
+                                                        }
                                                     }
                                                     $count++;
                                                 }
@@ -438,10 +494,12 @@ if(isset($_POST['pricerange']))
                                 
 
                                 /* show searched code */
-                                if(isset($_POST['search_query']))
+                                if(isset($_GET['search_query']) || isset($searchfield))
                                 {
-                                    $results = $Job->searchJob($_POST['search_query']);
-
+                                    if(isset($_GET['search_query']))
+                                        $results = $Job->searchJob($_GET['search_query']);
+                                    else
+                                        $results = $Job->searchJob($searchfield);
 //                                    echo $_POST['search_query'].'<br>';
 //                                    echo "testing";
 
@@ -449,6 +507,20 @@ if(isset($_POST['pricerange']))
                                     {
                                         while($row = mysqli_fetch_assoc($results))
                                         {
+                                            $jobsalary1 = $row['job_salary'];
+                                            $jobsalary2 = str_replace(',', '', $jobsalary1);
+
+                                            if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice))
+                                            {
+                                                continue;
+                                            }
+                                            if(isset($jobnature))
+                                            {
+                                                if(!($row['job_nature'] == $jobnature))
+                                                {
+                                                    continue;
+                                                }
+                                            }
                                             ?>
                                             <div class="col-lg-6">
                                                 <!-- Single -->
@@ -524,8 +596,6 @@ if(isset($_POST['pricerange']))
                                 }
                                 }
 
-
-                                
                                 /* show matched code */
                                 else
                                 while($row = mysqli_fetch_assoc($ret))
@@ -536,6 +606,13 @@ if(isset($_POST['pricerange']))
                                     if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice))
                                     {
                                         continue;
+                                    }
+                                    if(isset($jobnature))
+                                    {
+                                        if(!($row['job_nature'] == $jobnature))
+                                        {
+                                            continue;
+                                        }
                                     }
                                 ?>
 
