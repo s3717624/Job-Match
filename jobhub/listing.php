@@ -41,6 +41,34 @@ if(isset($_SESSION['user_id']))
 $_SESSION['currentpage'] = './listing.php';
 
 $count = 0;
+
+$checked1 = $checked2 = $checked3 = $checked4 = $checked5 = null;
+
+$lowerprice = 0;
+$upperprice = 999999999;
+
+if(isset($_POST['pricerange']))
+{
+    if($_POST['pricerange'] == "50korless")
+    {
+        $upperprice = 50000;
+    } else if ($_POST['pricerange'] == "50kto75k")
+    {
+        $lowerprice = 50000;
+        $upperprice = 75000;
+    } else if ($_POST['pricerange'] == "75kto100k")
+    {
+        $lowerprice = 75000;
+        $upperprice = 100000;
+    } else if ($_POST['pricerange'] == "100kto125k")
+    {
+        $lowerprice = 100000;
+        $upperprice = 125000;
+    } else if ($_POST['pricerange'] == "125kormore")
+    {
+        $lowerprice = 125000;
+    }
+}
 ?>
 
 
@@ -206,12 +234,13 @@ $count = 0;
                         </div>
                         <!-- Job Category Listing start -->
                         <div class="category-listing mb-50">
+                            <form action="./listing.php" method="POST" id="advancedfilter">
                             <!-- single one -->
                             <div class="single-listing">
                                 <!-- Select City items start -->
                                 <div class="select-job-items2">
                                     <select name="select2">
-                                        <option value="">City</option>
+                                        <option value="" disabled selected>City</option>
                                         <option value="">Dhaka</option>
                                         <option value="">india</option>
                                         <option value="">UK</option>
@@ -223,7 +252,7 @@ $count = 0;
                                 <!-- Select State items start -->
                                 <div class="select-job-items2">
                                     <select name="select2">
-                                        <option value="">State</option>
+                                        <option value="" disabled selected>State</option>
                                         <option value="">Dhaka</option>
                                         <option value="">Mirpur</option>
                                         <option value="">Danmondi</option>
@@ -249,26 +278,55 @@ $count = 0;
                                     <div class="small-section-tittle2 mb-20">
                                         <h4>Price range</h4>
                                     </div>
-                                    <label class="container">$50 - $150
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">$150 - $300
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">$300 - $500
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">$500 - $1000
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">$1000 - Above
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    <?php
+                                        if(isset($_POST['pricerange']))
+                                        {
+                                            if($_POST['pricerange'] == '50korless')
+                                            {
+                                                $checked1 = "checked";
+                                            } else if($_POST['pricerange'] == '50kto75k')
+                                            {
+                                                $checked2 = "checked";
+                                            } else if($_POST['pricerange'] == '75kto100k')
+                                            {
+                                                $checked3 = "checked";
+                                            } else if($_POST['pricerange'] == '100kto125k')
+                                            {
+                                                $checked4 = "checked";
+                                            } else if($_POST['pricerange'] == '125kormore')
+                                            {
+                                                $checked5 = "checked";
+                                            }
+                                        }
+
+                                    echo "<label>
+                                        <input type='radio' name='pricerange' value='50korless' onclick='' " . $checked1 . ">
+                                            $50K or less
+                                        </label><br>
+                                    <label>
+                                        <input type='radio' name='pricerange' value='50kto75k' onclick='' " . $checked2 . ">
+                                            $50K-75K
+                                        </label><br>
+                                    <label>
+                                        <input type='radio' name='pricerange' value='75kto100k' onclick='' " . $checked3 . ">
+                                            $75K-100K
+                                        </label><br>
+                                    <label>
+                                        <input type='radio' name='pricerange' value='100kto125k' onclick='' " . $checked4 . ">
+                                            $100K-125K
+                                        </label><br>
+                                    <label>
+                                        <input type='radio' name='pricerange' value='125kormore' onclick='' " . $checked5 . ">
+                                            $125K or more
+                                        </label><br>
+                                        
+                                        Test: ".$lowerprice." ".$upperprice."
+                                        ";
+                                    ?>
+
+                                    <script language="JavaScript">
+
+                                    </script>
                                 </div>
                                 <!-- select-Categories End -->
                                 <!-- select-Categories start -->
@@ -296,8 +354,11 @@ $count = 0;
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
-                                </div>
+                                </div><br>
+
+                                <input type="submit" value="Go">
                                 <!-- select-Categories End -->
+                            </form>
                             </div>
                         </div>
                         <!-- Job Category Listing End -->
@@ -319,10 +380,18 @@ $count = 0;
                                     <span><?php
                                         if(isset($_POST['search_query'])){
                                             $results = $Job->searchJob($_POST['search_query']);
+
                                             if(mysqli_num_rows($results)>0)
                                             {
                                                 while($row = mysqli_fetch_assoc($results))
                                                 {
+                                                    $jobsalary1 = $row['job_salary'];
+                                                    $jobsalary2 = str_replace(',', '', $jobsalary1);
+
+                                                    if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice))
+                                                    {
+                                                        continue;
+                                                    }
                                                     $count++;
                                                 }
                                             }
@@ -335,7 +404,24 @@ $count = 0;
                                         }
                                         else
                                         {
-                                            echo $row_cnt;
+                                            $results = $Job->searchJob("");
+
+                                            if(mysqli_num_rows($results)>0)
+                                            {
+                                                while($row = mysqli_fetch_assoc($results))
+                                                {
+                                                    $jobsalary1 = $row['job_salary'];
+                                                    $jobsalary2 = str_replace(',', '', $jobsalary1);
+
+                                                    if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice))
+                                                    {
+                                                        continue;
+                                                    }
+                                                    $count++;
+                                                }
+                                            }
+
+                                            echo $count;
                                             echo " Match(es) founds";
                                         }
                                         ?> </span>
@@ -442,10 +528,15 @@ $count = 0;
                                 
                                 /* show matched code */
                                 else
-
-                                
                                 while($row = mysqli_fetch_assoc($ret))
                                 {
+                                    $jobsalary1 = $row['job_salary'];
+                                    $jobsalary2 = str_replace(',', '', $jobsalary1);
+
+                                    if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice))
+                                    {
+                                        continue;
+                                    }
                                 ?>
 
                                 <div class="col-lg-6">
