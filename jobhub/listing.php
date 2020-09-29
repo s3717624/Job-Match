@@ -560,7 +560,7 @@ if(isset($_GET['search_query']))
                                     }
                                 }
 
-                                elseif(isset($_POST['alljobsbtn'])) {
+                                elseif(isset($_GET['alljobsbtn'])) {
                                     while($row = mysqli_fetch_assoc($alljobs))
                                 {
                                 ?>
