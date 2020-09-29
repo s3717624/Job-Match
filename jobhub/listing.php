@@ -266,40 +266,40 @@ if(isset($_GET['search_query']))
                             <!-- single one -->
                             <div class="single-listing">
                                 <!-- Select City items start -->
-                                <div class="select-job-items2">
-                                    <select name="select2">
-                                        <option value="" disabled selected>City</option>
-                                        <option value="">Dhaka</option>
-                                        <option value="">india</option>
-                                        <option value="">UK</option>
-                                        <option value="">US</option>
-                                        <option value="">Pakistan</option>
-                                    </select>
-                                </div>
+<!--                                <div class="select-job-items2">-->
+<!--                                    <select name="select2">-->
+<!--                                        <option value="" disabled selected>City</option>-->
+<!--                                        <option value="">Dhaka</option>-->
+<!--                                        <option value="">india</option>-->
+<!--                                        <option value="">UK</option>-->
+<!--                                        <option value="">US</option>-->
+<!--                                        <option value="">Pakistan</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
                                 <!--  Select City items End-->
                                 <!-- Select State items start -->
-                                <div class="select-job-items2">
-                                    <select name="select2">
-                                        <option value="" disabled selected>State</option>
-                                        <option value="">Dhaka</option>
-                                        <option value="">Mirpur</option>
-                                        <option value="">Danmondi</option>
-                                        <option value="">Rampura</option>
-                                        <option value="">Htizill</option>
-                                    </select>
-                                </div>
+<!--                                <div class="select-job-items2">-->
+<!--                                    <select name="select2">-->
+<!--                                        <option value="" disabled selected>State</option>-->
+<!--                                        <option value="">Dhaka</option>-->
+<!--                                        <option value="">Mirpur</option>-->
+<!--                                        <option value="">Danmondi</option>-->
+<!--                                        <option value="">Rampura</option>-->
+<!--                                        <option value="">Htizill</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
                                 <!--  Select State items End-->
                                 <!-- Select km items start -->
-                                <div class="select-job-items2">
-                                    <select name="select2">
-                                        <option value="">Near 1 km</option>
-                                        <option value="">2 km</option>
-                                        <option value="">3 km</option>
-                                        <option value="">4 km</option>
-                                        <option value="">5 km</option>
-                                        <option value="">6 km</option>
-                                    </select>
-                                </div>
+<!--                                <div class="select-job-items2">-->
+<!--                                    <select name="select2">-->
+<!--                                        <option value="">Near 1 km</option>-->
+<!--                                        <option value="">2 km</option>-->
+<!--                                        <option value="">3 km</option>-->
+<!--                                        <option value="">4 km</option>-->
+<!--                                        <option value="">5 km</option>-->
+<!--                                        <option value="">6 km</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
                                 <!--  Select km items End-->
                                 <!-- select-Categories start -->
                                 <div class="select-Categories pt-80 pb-30">
@@ -347,9 +347,9 @@ if(isset($_GET['search_query']))
                                         <input type='radio' name='pricerange' value='125kormore' onclick='' " . $checked5 . ">
                                             $125K or more
                                         </label><br>
-                                        
-                                        Test: ".$lowerprice." ".$upperprice."
                                         ";
+
+//                                        echo "Test: ".$lowerprice." ".$upperprice;
                                     ?>
 
                                     <script language="JavaScript">
@@ -386,10 +386,10 @@ if(isset($_GET['search_query']))
                                     <label>
                                         <input type='radio' name='jobnature' value='casual' onclick='' " . $nature3 . ">
                                             Casual
-                                        </label><br>
-                             
-                                        Test: ".$jobnature."
+                                        </label><br>      
                                         ";
+
+//                                echo  "Test: ".$jobnature;
                                 ?><br>
 
                                 <?php
@@ -453,7 +453,10 @@ if(isset($_GET['search_query']))
                                         }
                                         else
                                         {
-                                            $results = $Job->searchJob("");
+                                            if(isset($searchfield))
+                                                $results = $Job->searchJob($searchfield);
+                                            else
+                                                $results = $Job->searchJob("");
 
                                             if(mysqli_num_rows($results)>0)
                                             {
