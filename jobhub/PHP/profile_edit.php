@@ -139,12 +139,12 @@ if(!(isset($_SESSION['user_id'])))
                                             <li><a href="listing.php">Listings</a></li>
                                             <?php
                                             $add_job_text = "";
-                                            $modified_link2 = "<a href='add_job.php'>";
+                                            $modified_link2 = "";
 
-                                            if (isset($_SESSION["user_id"]))
+                                            if (isset($_SESSION["user_id"]) && ($Account->typeCheck($_SESSION['user_id'])) == 'employers')
                                             {
                                                 $add_job_text = "Add job";
-                                                $modified_link2 = "<a href='profile.php'>";
+                                                $modified_link2 = "<a href='add_job.php'>";
                                                 echo "<li>".$modified_link2.$add_job_text."</a></li>";
                                             }
                                             ?>

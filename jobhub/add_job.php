@@ -3,7 +3,9 @@ session_start();
 require_once("php/account_class.php");
 require_once("php/db_inc.php");
 
-if(isset($_SESSION['user_id']))
+$Account = new Account();
+
+if(isset($_SESSION['user_id']) && ($Account->typeCheck($_SESSION['user_id'])) == 'employers')
     $sessionid = $_SESSION["user_id"];
 else if(isset($_SESSION['currentpage']))
     header("Location: ".$_SESSION['currentpage']);
@@ -78,7 +80,7 @@ $_SESSION['currentpage'] = "add_job.php";
                                             $add_job_text = "";
                                             $modified_link2 = "";
 
-                                            if (isset($_SESSION["user_id"]))
+                                            if (isset($_SESSION["user_id"]) && ($Account->typeCheck($_SESSION['user_id'])) == 'employers')
                                             {
                                                 $add_job_text = "Add job";
                                                 $modified_link2 = "<a href='add_job.php'>";

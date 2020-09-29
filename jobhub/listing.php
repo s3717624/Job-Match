@@ -165,7 +165,7 @@ if(isset($_GET['search_query']))
                                                 $add_job_text = "";
                                                 $modified_link2 = "";
 
-                                                if (isset($_SESSION["user_id"]))
+                                                if (isset($_SESSION["user_id"]) && ($Account->typeCheck($_SESSION['user_id'])) == 'employers')
                                                 {
                                                     $add_job_text = "Add job";
                                                     $modified_link2 = "<a href='add_job.php'>";

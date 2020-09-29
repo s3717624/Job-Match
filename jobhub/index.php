@@ -1,6 +1,11 @@
 <?php
 session_start();
 $_SESSION["currentpage"] = "index.php";
+
+require_once("php/account_class.php");
+require_once("php/db_inc.php");
+
+$Account = new Account();
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -67,7 +72,7 @@ $_SESSION["currentpage"] = "index.php";
                                                 $add_job_text = "";
                                                 $modified_link2 = "";
 
-                                                if (isset($_SESSION["user_id"]))
+                                                if (isset($_SESSION["user_id"]) && ($Account->typeCheck($_SESSION['user_id'])) == 'employers')
                                                 {
                                                     $add_job_text = "Add job";
                                                     $modified_link2 = "<a href='add_job.php'>";
