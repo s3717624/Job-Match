@@ -134,7 +134,7 @@ $Account = new Account();
                         </div>
                         <div class="col-xl-11 col-lg-12">
                             <!--Hero form -->
-                            <form id="jobsearch" action="listing.php" class="search-box" method="POST">
+                            <form id="jobsearch" action="listing.php" class="search-box" method="GET">
                                 <div class="input-form">
                                     <input type="text" name="search_query" placeholder="Job title or keywords">
                                     <!-- icon -->
