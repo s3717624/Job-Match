@@ -170,6 +170,7 @@ if(isset($_GET['search_query']))
                                                     $add_job_text = "Add job";
                                                     $modified_link2 = "<a href='add_job.php'>";
                                                     echo "<li>".$modified_link2.$add_job_text."</a></li>";
+                                                    echo "<li><a href='joblist.php'>Your Listings</a></li>";
                                                 }
                                                 ?>
                                                 <li><a href="categori.html">Categories</a></li>

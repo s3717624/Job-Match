@@ -17,6 +17,13 @@ $_SESSION['currentpage'] = "job_app.php";
 $userid = $_SESSION["user_id"];
 $jobid = $_REQUEST['jobid'];
 
+$query = mysqli_query($conn,"SELECT * FROM accounts WHERE account_id = $userid");
+$row = mysqli_fetch_array($query);
+$accname = $row['account_fullname'];
+$accskills = $row['account_skills'];
+$accedu = $row['account_education'];
+$phone = $row['account_phone'];
+$email = $row['account_email'];
 ?>
 
 <!doctype html>
@@ -89,6 +96,7 @@ $jobid = $_REQUEST['jobid'];
                                                 $add_job_text = "Add job";
                                                 $modified_link2 = "<a href='add_job.php'>";
                                                 echo "<li>".$modified_link2.$add_job_text."</a></li>";
+                                                echo "<li><a href='joblist.php'>Your Listings</a></li>";
                                             }
                                             ?>
                                             <li><a href="categori.html">Categories</a></li>
@@ -150,7 +158,7 @@ $jobid = $_REQUEST['jobid'];
     <!-- job post company Start -->
     <div class="job-post-company pt-120 pb-120">
         <div class="container">
-            <div class="row justify-content-between">
+            <div class="row justify-content-center">
                 <!-- Left Content -->
                 <div class="col-xl-7 col-lg-8">
                     <div class="top-jobs mb-50">
@@ -158,10 +166,20 @@ $jobid = $_REQUEST['jobid'];
                         <div class="single-top-jobs">
                             <div class="services-cap">
                                 <form id="jobappform" name="jobappform" method="post" action="php/adding_app.php">
+                                    <p>Full Name<span style="color: red;"> *</span></p>
+                                    <div style="text-align:center;"><input style="margin: auto; width: 550px" type="text" id="name" name="name" placeholder="Name" value="<?php echo $accname ?>"></div><br><br>
+                                    <p>Phone Number<span style="color: red;"> *</span></p>
+                                    <div style="text-align:center;"><input style="margin: auto; width: 550px" type="text" id="phone" name="phone" placeholder="Phone Number" value="<?php echo $phone ?>"></div><br><br>
+                                    <p>Email<span style="color: red;"> *</span></p>
+                                    <div style="text-align:center;"><input style="margin: auto; width: 550px" type="text" id="email" name="email" placeholder="Email" value="<?php echo $email ?>"></div><br><br>
                                     <p>Cover Letter</p>
-                                    <div style="text-align:center;"><textarea id="cover" name="cover" rows="10" cols="60" form="jobappform" placeholder="Enter cover letter here and we'll take care of the rest"></textarea></div><br><br>
+                                    <div style="text-align:center;"><textarea id="cover" name="cover" rows="15" cols="60" form="jobappform" placeholder="Enter cover letter here and we'll take care of the rest"></textarea></div><br><br>
+                                    <p>Job Skills</p>
+                                    <div style="text-align:center;"><textarea id="appskills" name="appskills" rows="5" cols="60" form="jobappform" placeholder="Skills needed for the job"><?php echo $accskills ?></textarea></div><br><br>
+                                    <p>Job Education</p>
+                                    <div style="text-align:center;"><textarea id="appedu" name="appedu" rows="5" cols="60" form="jobappform" placeholder="Education needed for the job"><?php echo $accedu ?></textarea></div><br><br>
                                     <p style="color: lightblue;">Fields marked with <span style="color: red;">*</span> are required.</p>
-                                    <input type="hidden" id="sessionid" name="sessionid" value=<?php echo $_SESSION["user_id"]; ?>>
+                                    <input type="hidden" id="sessionid" name="sessionid" value=<?php echo $userid; ?>>
                                     <input type="hidden" id="jobid" name="jobid" value=<?php echo $jobid; ?>>
                                     <input type="submit" name="submit" id="submitbutton" value="Submit Application"b>
                                     <script language="javascript" type="text/javascript">
@@ -169,11 +187,15 @@ $jobid = $_REQUEST['jobid'];
 
                                         function validateForm()
                                         {
-                                            var cover = document.forms["jobappform"]["cover"].value;
+                                            var name = document.forms["jobappform"]["name"].value;
+                                            var phone = document.forms["jobappform"]["phone"].value;
+                                            var email = document.forms["jobappform"]["email"].value;
 
                                             //alert("Success!");
 
-                                            if(isEmptyOrSpaces(cover)
+                                            if(isEmptyOrSpaces(name)
+                                                || isEmptyOrSpaces(phone)
+                                                || isEmptyorSpaces(email))
                                             {
                                                 alert("Please fill out all required fields.");
                                             }

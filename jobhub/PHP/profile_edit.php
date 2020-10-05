@@ -126,7 +126,7 @@ if(!(isset($_SESSION['user_id'])))
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                                <a href="index.php"><img src="../assets/img/logo/logo.png" alt=""></a>
+                                <a href="../index.php"><img src="../assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10">
@@ -135,8 +135,8 @@ if(!(isset($_SESSION['user_id'])))
                                 <div class="main-menu d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index.php">Home</a></li>
-                                            <li><a href="listing.php">Listings</a></li>
+                                            <li><a href="../index.php">Home</a></li>
+                                            <li><a href="../listing.php">Listings</a></li>
                                             <?php
                                             $add_job_text = "";
                                             $modified_link2 = "";
@@ -144,8 +144,9 @@ if(!(isset($_SESSION['user_id'])))
                                             if (isset($_SESSION["user_id"]) && ($Account->typeCheck($_SESSION['user_id'])) == 'employers')
                                             {
                                                 $add_job_text = "Add job";
-                                                $modified_link2 = "<a href='add_job.php'>";
+                                                $modified_link2 = "<a href='../add_job.php'>";
                                                 echo "<li>".$modified_link2.$add_job_text."</a></li>";
+                                                echo "<li><a href='../joblist.php'>Your Listings</a></li>";
                                             }
                                             ?>
                                             <li><a href="categori.html">Categories</a></li>
@@ -157,7 +158,7 @@ if(!(isset($_SESSION['user_id'])))
                                                     <li><a href="elements.html">Element</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="php/logging_out.php">Log out</a></li>
+                                            <li><a href="logging_out.php">Log out</a></li>
                                         </ul>
                                     </nav>
                                 </div>
