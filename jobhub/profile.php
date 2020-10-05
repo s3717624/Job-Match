@@ -79,15 +79,6 @@ $_SESSION['currentpage'] = "profile.php";
                                             echo "<li><a href='joblist.php'>Your Listings</a></li>";
                                         }
                                         ?>
-                                        <li><a href="categori.html">Categories</a></li>
-                                        <li><a href="#">Pages</a>
-                                            <ul class="submenu">
-                                                <li><a href="about.html">about</a></li>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog_details.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Element</a></li>
-                                            </ul>
-                                        </li>
                                         <li><a href="php/logging_out.php">Log out</a></li>
                                     </ul>
                                 </nav>

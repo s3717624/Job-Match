@@ -173,15 +173,6 @@ if(isset($_GET['search_query']))
                                                     echo "<li><a href='joblist.php'>Your Listings</a></li>";
                                                 }
                                                 ?>
-                                                <li><a href="categori.html">Categories</a></li>
-                                                <li><a href="#">Pages</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="about.html">about</a></li>
-                                                        <li><a href="blog.html">Blog</a></li>
-                                                        <li><a href="blog_details.html">Blog Details</a></li>
-                                                        <li><a href="elements.html">Element</a></li>
-                                                    </ul>
-                                                </li>
                                                 <li><?php
                                                     $login_text = "Log in";
                                                     $modified_link = "<a href='login.php'>";

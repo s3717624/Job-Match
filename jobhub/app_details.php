@@ -40,7 +40,11 @@ $skills = $row['app_skills'];
 $edu = $row['app_education'];
 $phone = $row['app_phone'];
 $email = $row['app_email'];
+$jobid = $row['job_id'];
 $appdate = date( 'd/m/Y h:i:s', strtotime($row['apply_date']));
+$jobinfo = mysqli_query($conn,"SELECT * FROM jobs WHERE job_id = $jobid");
+$jobarr = mysqli_fetch_array($jobinfo);
+$jobname = $jobarr['job_name'];
 
 $_SESSION['currentpage'] = "app_details.php?appid=$appid";
 
@@ -120,15 +124,6 @@ $_SESSION['currentpage'] = "app_details.php?appid=$appid";
                                                     echo "<li><a href='joblist.php'>Your Listings</a></li>";
                                                 }
                                                 ?>
-                                                <li><a href="categori.html">Categories</a></li>
-                                                <li><a href="#">Pages</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="about.html">about</a></li>
-                                                        <li><a href="blog.html">Blog</a></li>
-                                                        <li><a href="blog_details.html">Blog Details</a></li>
-                                                        <li><a href="elements.html">Element</a></li>
-                                                    </ul>
-                                                </li>
                                                 <li><?php
                                                     $login_text = "Log in";
                                                     $modified_link = "<a href='login.php'>";
@@ -168,7 +163,7 @@ $_SESSION['currentpage'] = "app_details.php?appid=$appid";
                         <div class="col-xl-8 col-lg-9">
                             <!-- Hero Caption -->
                             <div class="hero__caption hero__caption2">
-                                <h1>Job Details</h1>
+                                <h1>Application for <?php echo $jobname ?></h1>
                             </div>
                         </div>
                     </div>
