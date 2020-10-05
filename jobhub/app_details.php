@@ -12,7 +12,6 @@ $Account = new Account();
 //    header("Location: ".$_SESSION['currentpage']);
 //}
 
-$_SESSION['currentpage'] = "job_details.php";
 
 //if(isset($_SESSION['job_id']))
 //    header($_SESSION['currentpage']);
@@ -32,21 +31,22 @@ $_SESSION['currentpage'] = "job_details.php";
 //$jobapply = $job.getApplyDate();
 
 $conn = mysqli_connect("localhost", "outsideadmin", "bLb$?Se%@6@U*5CK", "login_system");
-$jobid = $_REQUEST['jobid'];
+$appid = $_REQUEST['appid'];
+$appinfo = mysqli_query($conn,"SELECT * FROM applicants WHERE app_id = $appid");
+$row = mysqli_fetch_array($appinfo);
+$cover = $row['cover_letter'];
+$name = $row['app_name'];
+$skills = $row['app_skills'];
+$edu = $row['app_education'];
+$phone = $row['app_phone'];
+$email = $row['app_email'];
+$jobid = $row['job_id'];
+$appdate = date( 'd/m/Y h:i:s', strtotime($row['apply_date']));
 $jobinfo = mysqli_query($conn,"SELECT * FROM jobs WHERE job_id = $jobid");
-$row = mysqli_fetch_array($jobinfo);
+$jobarr = mysqli_fetch_array($jobinfo);
+$jobname = $jobarr['job_name'];
 
-$jobname = $row['job_name'];
-$jobshortdesc = $row['job_short_desc'];
-$jobdesc = $row['job_desc'];
-$jobskills = $row['job_skills'];
-$jobeducation = $row['job_education'];
-$jobposted = date( 'd/m/Y', strtotime($row['job_posted_date']));
-$joblocation = $row['job_location'];
-$jobnature = $row['job_nature'];
-$jobsalary = $row['job_salary'];
-$jobapply = date( 'd/m/Y', strtotime($row['job_apply_date']));
-
+$_SESSION['currentpage'] = "app_details.php?appid=$appid";
 
 
 ?>
@@ -163,7 +163,7 @@ $jobapply = date( 'd/m/Y', strtotime($row['job_apply_date']));
                         <div class="col-xl-8 col-lg-9">
                             <!-- Hero Caption -->
                             <div class="hero__caption hero__caption2">
-                                <h1>Job Details</h1>
+                                <h1>Application for <?php echo $jobname ?></h1>
                             </div>
                         </div>
                     </div>
@@ -177,34 +177,23 @@ $jobapply = date( 'd/m/Y', strtotime($row['job_apply_date']));
                 <div class="row justify-content-between">
                     <!-- Left Content -->
                     <div class="col-xl-7 col-lg-8">
-                        <div class="top-jobs mb-50">
-                            <!-- Single -->
-                            <div class="single-top-jobs">
-                                <div class="services-ion">
-                                    <img src="assets/img/icon/jon-iocn1.svg" alt="">
-                                </div>
-                                <div class="services-cap">
-                                    <h3><?php echo $jobname; ?></h3>
-                                    <p><?php echo $jobshortdesc; ?></p>
-                                </div>
-                            </div>
-                        </div>   
+                        <!-- Single -->
 
                         <div class="job-post-details">
                             <div class="post-details1 mb-50">
                                 <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
-                                    <h4>Job Description</h4>
+                                    <h4>Cover Letter</h4>
                                 </div>
-                                <p><?php echo $jobdesc; ?></p>
+                                <p><?php echo $cover; ?></p>
                             </div>
                             <div class="post-details2  mb-50">
                                 <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
-                                    <h4>Required Knowledge, Skills, and Abilities</h4>
+                                    <h4>Knowledge, Skills, and Abilities</h4>
                                 </div>
                                 <ul>
-                                    <?php echo "<li>$jobskills</li>"?>
+                                    <?php echo "<li>$skills</li>"?>
                                 </ul>
                             </div>
                             <div class="post-details2  mb-50">
@@ -213,7 +202,7 @@ $jobapply = date( 'd/m/Y', strtotime($row['job_apply_date']));
                                     <h4>Education + Experience</h4>
                                 </div>
                                 <ul>
-                                    <?php echo "<li>$jobeducation</li>"?>
+                                    <?php echo "<li>$edu</li>"?>
                                 </ul>
                             </div>
                         </div>
@@ -227,54 +216,20 @@ $jobapply = date( 'd/m/Y', strtotime($row['job_apply_date']));
                                 <h4>Job Overview</h4>
                             </div>
                             <ul>
-                                <li>Posted date : <span><?php echo $jobposted; ?></span></li>
-                                <li>Location : <span><?php echo $joblocation; ?></span></li>
-                                <li>Job nature : <span><?php echo $jobnature; ?></span></li>
-                                <li>Salary :  <span><?php echo $jobsalary; ?></span></li>
-                                <li>Application date : <span><?php echo $jobapply; ?></span></li>
+                                <li>Applied on : <span><?php echo $appdate; ?></span></li>
+                                <li>Applicant name : <span><?php echo $name; ?></span></li>
+                                <li>Applicant phone number : <span><?php echo $phone; ?></span></li>
+                                <li>Email :  <span><?php echo $email; ?></span></li>
                             </ul>
                             <div class="apply-btn2">
-                                <a href="job_app.php?jobid=<?php echo $row['job_id'];?>" class="btn">Apply Now</a>
+                                <a href="#" class="btn">Contact</a>
                             </div>
-                        </div>
-                        <div class="post-details4  mb-50">
-                            <!-- Small Section Tittle -->
-                            <div class="small-section-tittle">
-                                <h4>Company Information</h4>
-                            </div>
-                            <span>Colorlib</span>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                            <ul>
-                                <li>Name: <span>Colorlib </span></li>
-                                <li>Web : <span> colorlib.com</span></li>
-                                <li>Email: <span>carrier.colorlib@gmail.com</span></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- job post company End -->
-
-        <!--? Want To work 01-->
-        <section class="wantToWork-area">
-            <div class="container">
-                <div class="wants-wrapper w-padding2">
-                    <div class="row align-items-center justify-content-between">
-                        <div class="col-xl-7 col-lg-9 col-md-8">
-                            <div class="wantToWork-caption wantToWork-caption2">
-                                <h2>Start finding your dream job</h2>
-                                <p>The automated process starts as soon as your clothes go into the machine. The outcome is gleaming clothes placeholder text commonly used.</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-3 ">
-                            <a href="listing.php" class="btn f-right wantToWork-btn">Browse Job</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Want To work End -->
     </main>
     <footer>
         <div class="footer-wrappper pl-100 pr-100 section-bg" data-background="assets/img/gallery/footer-bg.png">
