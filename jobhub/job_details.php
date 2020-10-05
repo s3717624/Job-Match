@@ -41,11 +41,11 @@ $jobshortdesc = $row['job_short_desc'];
 $jobdesc = $row['job_desc'];
 $jobskills = $row['job_skills'];
 $jobeducation = $row['job_education'];
-$jobposted = $row['job_posted_date'];
+$jobposted = date( 'd/m/Y', strtotime($row['job_posted_date']));
 $joblocation = $row['job_location'];
 $jobnature = $row['job_nature'];
 $jobsalary = $row['job_salary'];
-$jobapply = $row['job_apply_date'];
+$jobapply = date( 'd/m/Y', strtotime($row['job_apply_date']));
 
 
 
@@ -242,7 +242,7 @@ $jobapply = $row['job_apply_date'];
                                 <li>Application date : <span><?php echo $jobapply; ?></span></li>
                             </ul>
                             <div class="apply-btn2">
-                                <a href="#" class="btn">Apply Now</a>
+                                <a href="job_app.php?jobid=<?php echo $row['job_id'];?>" class="btn">Apply Now</a>
                             </div>
                         </div>
                         <div class="post-details4  mb-50">
@@ -276,7 +276,7 @@ $jobapply = $row['job_apply_date'];
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-3 ">
-                            <a href="#" class="btn f-right wantToWork-btn">Browse Job</a>
+                            <a href="listing.php" class="btn f-right wantToWork-btn">Browse Job</a>
                         </div>
                     </div>
                 </div>
