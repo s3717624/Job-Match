@@ -1,7 +1,7 @@
 <?php
 
 /* Host name of the MySQL server */
-$host = '127.0.0.1';
+$host = 'localhost';
 
 /* MySQL account username */
 $user = 'outsideadmin';
