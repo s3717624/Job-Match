@@ -1,11 +1,22 @@
 <?php
+
+use NlpTools\Similarity\CosineSimilarity;
+use NlpTools\Tokenizers\WhitespaceAndPunctuationTokenizer;
+
 session_start();
 require_once("php/account_class.php");
 require_once("php/job_class.php");
 require_once("php/db_inc.php");
+require_once("php/NlpTools/Similarity/SimilarityInterface.php");
+require_once("php/NlpTools/Similarity/DistanceInterface.php");
+require_once("php/NlpTools/Similarity/CosineSimilarity.php");
+require_once("php/NlpTools/Tokenizers/TokenizerInterface.php");
+require_once("php/NlpTools/Tokenizers/WhitespaceAndPunctuationTokenizer.php");
 
 $Account = new Account();
 $Job = new Job();
+$Similarity = new CosineSimilarity();
+$Tokenizer = new WhitespaceAndPunctuationTokenizer();
 
 //if(!(isset($_SESSION['user_id'])))
 //{
@@ -360,7 +371,31 @@ if(isset($_GET['search_query']))
                                                     $jobsalary1 = $row['job_salary'];
                                                     $jobsalary2 = str_replace(',', '', $jobsalary1);
 
-                                                    if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice))
+                                                    $similarityCount = 0;
+                                                    $setA = $Tokenizer->tokenize(strtolower($_GET['search_query']));
+                                                    $setB = array($Tokenizer->tokenize(strtolower($row['job_name'])), $Tokenizer->tokenize(strtolower($row['job_short_desc'])), $Tokenizer->tokenize(strtolower($row['job_desc'])));
+
+                                                    for($x = 0; $x <= 2; $x++)
+                                                    {
+//                                                        echo "test ".$_GET['search_query']." ".$row['job_name']."<br>";
+                                                        if($x == 2 && ($row['job_desc'] == ""))
+                                                            $similarityResult = 1;
+                                                        else if(isset($_GET['search_query']))
+                                                            $similarityResult = 1;
+                                                        else
+                                                            $similarityResult = $Similarity->similarity($setA, $setB[$x]);
+
+//                                                        echo "test complete ".$similarityResult."<br>";
+                                                        if(round($similarityResult) == 1.0)
+                                                        {
+                                                            $similarityCount++;
+                                                        }
+//                                                        echo $similarityCount."<br>";
+                                                    }
+
+                                                    $similarityCount = floatval($similarityCount);
+
+                                                    if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice) || (($similarityCount/3.0) < 0.3))
                                                     {
                                                         continue;
                                                     }
@@ -395,7 +430,36 @@ if(isset($_GET['search_query']))
                                                     $jobsalary1 = $row['job_salary'];
                                                     $jobsalary2 = str_replace(',', '', $jobsalary1);
 
-                                                    if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice))
+                                                    $similarityCount = 3;
+
+                                                    if(isset($_GET['search_query']))
+                                                    {
+                                                        $similarityCount = 0;
+                                                        $setA = $Tokenizer->tokenize($_GET['search_query']);
+                                                        $setB = array($Tokenizer->tokenize($row['job_name']), $Tokenizer->tokenize($row['job_short_desc']), $Tokenizer->tokenize($row['job_desc']));
+
+                                                        for($x = 0; $x <= 2; $x++)
+                                                        {
+//                                                        echo "test ".$_GET['search_query']." ".$row['job_name']."<br>";
+                                                            if($x == 2 && ($row['job_desc'] == ""))
+                                                                $similarityResult = 1;
+                                                            else if(isset($_GET['search_query']))
+                                                                $similarityResult = 1;
+                                                            else
+                                                                $similarityResult = $Similarity->similarity($setA, $setB[$x]);
+
+//                                                        echo "test complete ".$similarityResult."<br>";
+                                                            if(round($similarityResult) == 1.0)
+                                                            {
+                                                                $similarityCount++;
+                                                            }
+//                                                        echo $similarityCount."<br>";
+                                                        }
+
+                                                        $similarityCount = floatval($similarityCount);
+                                                    }
+
+                                                    if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice) || (($similarityCount/3.0) < 0.5))
                                                     {
                                                         continue;
                                                     }
@@ -446,7 +510,34 @@ if(isset($_GET['search_query']))
                                             $jobsalary1 = $row['job_salary'];
                                             $jobsalary2 = str_replace(',', '', $jobsalary1);
 
-                                            if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice))
+                                            $similarityCount = 0;
+                                            if(isset($_GET['search_query']))
+                                                $setA = $Tokenizer->tokenize($_GET['search_query']);
+                                            else
+                                                $setA = $Tokenizer->tokenize($searchfield);
+                                            $setB = array($Tokenizer->tokenize($row['job_name']), $Tokenizer->tokenize($row['job_short_desc']), $Tokenizer->tokenize($row['job_desc']));
+
+                                            for($x = 0; $x <= 2; $x++)
+                                            {
+//                                                        echo "test ".$_GET['search_query']." ".$row['job_name']."<br>";
+                                                if($x == 2 && ($row['job_desc'] == ""))
+                                                    $similarityResult = 1;
+                                                else if(isset($_GET['search_query']))
+                                                    $similarityResult = 1;
+                                                else
+                                                    $similarityResult = $Similarity->similarity($setA, $setB[$x]);
+
+//                                                        echo "test complete ".$similarityResult."<br>";
+                                                if(round($similarityResult) == 1.0)
+                                                {
+                                                    $similarityCount++;
+                                                }
+//                                                        echo $similarityCount."<br>";
+                                            }
+
+                                            $similarityCount = floatval($similarityCount);
+
+                                            if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice) || (($similarityCount/3.0) < 0.5))
                                             {
                                                 continue;
                                             }
