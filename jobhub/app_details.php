@@ -221,9 +221,6 @@ $_SESSION['currentpage'] = "app_details.php?appid=$appid";
                                 <li>Applicant phone number : <span><?php echo $phone; ?></span></li>
                                 <li>Email :  <span><?php echo $email; ?></span></li>
                             </ul>
-                            <div class="apply-btn2">
-                                <a href="#" class="btn">Contact</a>
-                            </div>
                         </div>
                     </div>
                 </div>
