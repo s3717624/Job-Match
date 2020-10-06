@@ -153,7 +153,7 @@ $_SESSION['currentpage'] = "compose.php";
 
                                             }else{
 
-                                            $query = mysqli_query($conn, "SELECT * from applicants join jobs on applicants.job_id = jobs.job_id where employer_id = '15' ");
+                                            $query = mysqli_query($conn, "SELECT * from applicants join jobs on applicants.job_id = jobs.job_id where employer_id = '$user' ");
 
                                             
 
