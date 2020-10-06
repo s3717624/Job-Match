@@ -328,7 +328,7 @@ if(isset($_GET['search_query']))
                                     echo "<input type=\"hidden\" id=\"searchfield\" name=\"searchfield\" value=".$searchfield.">";
                                 }
                                 ?>
-                                <input type="submit" value="Go">
+                                <input type="submit" name="gobtn" id="gobtn" value="Go">
                                 <!-- select-Categories End -->
                             </form>
                             </div>
@@ -381,7 +381,7 @@ if(isset($_GET['search_query']))
                                             echo $def_cnt;
                                             echo " Listing(s) are available";
                                         }
-                                        else
+                                        elseif(isset($_GET['gobtn'])) 
                                         {
                                             if(isset($searchfield))
                                                 $results = $Job->searchJob($searchfield);
@@ -411,6 +411,9 @@ if(isset($_GET['search_query']))
                                             }
 
                                             echo $count;
+                                            echo " Match(es) founds";
+                                        }else{
+                                            echo $row_cnt;
                                             echo " Match(es) founds";
                                         }
                                         ?> </span>
@@ -529,9 +532,47 @@ if(isset($_GET['search_query']))
                                 }
                                 }
 
+                                elseif(isset($_GET['matchbtn'])) {
+                                    while($row = mysqli_fetch_assoc($ret))
+                                {
+                                ?>
+
+                                <div class="col-lg-6">
+                                    <!-- Single -->
+                                    <div class="properties properties2 mb-30">
+                                        <div class="properties__card">
+                                            <div class="properties__img overlay1">
+                                                <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
+                                                <div class="img-text">
+                                                    
+                                                </div>
+                                                <div class="icon">
+                                                    <img src="assets/img/gallery/categori_icon1.png" alt=""> 
+                                                </div>
+                                            </div>
+                                            <div class="properties__caption">
+                                                <h3><a href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a></h3>
+                                                <p><?php echo $row['job_short_desc'];?></p>
+                                            </div>
+                                            <div class="properties__footer d-flex justify-content-between align-items-center">
+                                                <div class="restaurant-name">
+                                                    <img src="assets/img/gallery/restaurant-icon.png" alt="">
+                                                    <h3>$<?php echo $row['job_salary'];?></h3>
+                                                </div>
+                                                <div class="heart">
+                                                    <img src="assets/img/gallery/heart1.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <?php $cnt=$cnt+1; 
+                                }
+                                }
                                 /* show matched code */
                                 else
-                                while($row = mysqli_fetch_assoc($ret))
+                                while($row = mysqli_fetch_assoc($alljobs))
                                 {
                                     $jobsalary1 = $row['job_salary'];
                                     $jobsalary2 = str_replace(',', '', $jobsalary1);
