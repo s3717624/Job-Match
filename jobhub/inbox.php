@@ -140,7 +140,18 @@ $_SESSION['currentpage'] = "inbox.php";
                       
                       <div class="inbox-body">
                          <div class="mail-option">
+                             <?php
                              
+                             $type = $Account->typeCheck($_SESSION['user_id']);
+
+                             if ($type == "employers") {
+
+                                ?>
+                                <button class='btn btn-primary btn-sm pl-3 pr-3' onclick="window.location='compose.php'" '> Compose</button>
+                                <?php
+                             }
+
+                             ?>
 
                              <div class="btn-group">
                                  <a data-original-title="Refresh" data-placement="top" data-toggle="dropdown" href="#" class="btn mini tooltips">

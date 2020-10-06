@@ -98,6 +98,7 @@ $Account = new Account();
                                                         $modified_link = "<a href='profile.php'>";
                                                     }
                                                     ?><?php echo $modified_link.$login_text; ?></a></li>
+                                                    <li><a href="inbox.php">Inbox</a></li>
                                             </ul>
                                         </nav>
                                     </div>

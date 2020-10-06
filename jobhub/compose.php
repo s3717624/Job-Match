@@ -18,8 +18,8 @@ if(!(isset($_SESSION['user_id'])))
 
 $_SESSION['currentpage'] = "compose.php";
 
-$replyto = $_REQUEST['replyto'];
-$user_from = $Account->getNameFromId($replyto);
+
+
 
 ?>
 <!doctype html>
@@ -143,7 +143,40 @@ $user_from = $Account->getNameFromId($replyto);
 							<div class="col-lg-12 p-0 message-box-input">
 								<form id="submit" name="submit" method="POST" action="#">
 								  	<div class="form-group">
-								    	<input readonly type="text" class="form-control" id="replyto"  value="<?php echo $user_from; ?>">
+                                          <?php
+                                          $user = $_SESSION['user_id'];
+
+                                          if (isset($_REQUEST['replyto'])) {
+                                            $replyto = $_REQUEST['replyto'];
+                                            $user_from = $Account->getNameFromId($replyto);
+                                            echo '<input readonly type="text" class="form-control" id="replyto"  value="<?php echo $user_from; ?>">';
+
+                                            }else{
+
+                                            $query = mysqli_query($conn, "SELECT * from applicants join jobs on applicants.job_id = jobs.job_id where employer_id = '15' ");
+
+                                            
+
+                                                ?> <select name='applicant'>; <?php
+                                                // output data of each row
+                                                while($row = $query->fetch_assoc()) {
+                                                    $name = $Account->getFullNameFromId($row['account_id']);
+                                                    
+                                                  echo "<option value='" . $name . "'> ". $name ." </option>";
+                                                }
+                                                
+                                            ?></select> <?php
+                                            
+                                            
+
+                                        
+
+
+                                            
+                                        }
+                                          
+                                          ?>
+								    	
 								    	<input type="text" class="form-control" id="subject" name="subject"  placeholder="Subject">
 								  		<textarea class="form-control" id="message" name="message" rows="6"></textarea>
 								  	</div>

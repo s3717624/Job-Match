@@ -166,7 +166,7 @@ $_SESSION['currentpage'] = "inbox.php";
                          </div>
                           
                       </div>
-                      <button style="font-size:24px; color: black;" onclick = " window.location = 'compose.php?replyto=<?php echo $row['user_from'];?> ' ">Reply <i class="fa fa-mail-reply"></i></button>
+                      <button class="btn btn-primary btn-sm pl-3 pr-3" style="font-size:24px; color: black;" onclick = " window.location = 'compose.php?replyto=<?php echo $row['user_from'];?> ' ">Reply <i class="fa fa-mail-reply"></i></button>
                   </aside>
               </div>
 </div>
