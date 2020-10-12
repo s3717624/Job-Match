@@ -15,8 +15,10 @@ $userid = mysqli_real_escape_string($conn, $_REQUEST['sessionid']);
 $name = mysqli_real_escape_string($conn, $_REQUEST['name']);
 $skills = mysqli_real_escape_string($conn, $_REQUEST['appskills']);
 $edu = mysqli_real_escape_string($conn, $_REQUEST['appedu']);
+$phone = mysqli_real_escape_string($conn, $_REQUEST['phone']);
+$email = mysqli_real_escape_string($conn, $_REQUEST['email']);
 
-$sql = "INSERT INTO applicants (account_id, job_id, cover_letter, app_name, app_skills, app_education) VALUES ('$userid', '$jobid', '$cover', '$name', '$skills', '$edu')";
+$sql = "INSERT INTO applicants (account_id, job_id, cover_letter, app_name, app_skills, app_education, app_phone, app_email) VALUES ('$userid', '$jobid', '$cover', '$name', '$skills', '$edu', '$phone', '$email')";
 if(mysqli_query($conn, $sql)){
     echo "Records added successfully.";
     $_SESSION['job_created'];
