@@ -417,7 +417,7 @@ class Account
 		{
 		   /* If there is a PDO exception, throw a standard exception */
 		   return $e->getMessage();
-		   echo "exception: ".$e;
+		   echo "exception login: ".$e;
 		}
 		
 		$row = $res->fetch(PDO::FETCH_ASSOC);
@@ -569,7 +569,8 @@ class Account
 			catch (PDOException $e)
 			{
 			   /* If there is a PDO exception, throw a standard exception */
-			   throw new Exception('Database query error');
+			   return $e->getMessage();
+		   echo "exception sessionlogin: ".$e;
 			}
 			
 			$row = $res->fetch(PDO::FETCH_ASSOC);
