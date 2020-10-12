@@ -49,7 +49,6 @@ if (!isset($_POST["username"]) || !isset($_POST["password"]))
 // Login Process
 try {
     $login = $account->login($_POST["username"], $_POST["password"]);
-    echo "clear typecheck";
 }
 
 
@@ -59,7 +58,7 @@ catch (Exception $e)
     die();
 }
 
-echo "clear typecheck";
+
 
 // Session Login Process
 try
@@ -72,10 +71,10 @@ catch (Exception $e)
     echo $e->getMessage();
     die();
 }
-echo "clear typecheck";
-$_SESSION["user_id"] = $account->getId();
-echo "clear typecheck";
 
+$_SESSION["user_id"] = $account->getId();
+echo $_SESSION["user_id"];
+echo "up to typecheck ";
 $usrtype = $account->typeCheck($_SESSION["user_id"]);
 echo "clear typecheck";
 if ($login)

@@ -66,7 +66,8 @@ class Account
 
 	public function typeCheck($id): string
 	{
-        global $pdo;
+		global $pdo;
+		echo "clear typecheck1";
 
         if (!$this->isIdValid($id))
         {
