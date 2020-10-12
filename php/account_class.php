@@ -67,7 +67,7 @@ class Account
 	public function typeCheck($id): string
 	{
 		global $pdo;
-		echo "clear typecheck1";
+		echo "clear typecheck0 ";
 
         if (!$this->isIdValid($id))
         {
@@ -390,6 +390,8 @@ class Account
 		/* Trim the strings to remove extra spaces */
 		$name = trim($name);
 		$passwd = trim($passwd);
+		echo $name;
+		echo $passwd;
 
 		
 		/* Check if the user name is valid. If not, return FALSE meaning the authentication failed */
@@ -431,9 +433,11 @@ class Account
 			if (password_verify($passwd, $row['account_passwd']))
 			{
 				/* Authentication succeeded. Set the class properties (id and name) */
-				$this->id = intval($row['account_id'], 10);
-				echo $name;
+				$this->id = int($row['account_id'], 10);
+				echo $this->id;
 				$this->name = $name;
+				echo $name;
+
 				$this->authenticated = TRUE;
 				
 				/* Register the current Sessions on the database */
@@ -504,6 +508,7 @@ class Account
 	{
 		/* Initialize the return variable */
 		$valid = TRUE;
+		echo "isidvalid1 ";
 		
 		/* Example check: the ID must be between 1 and 1000000 */
 		
