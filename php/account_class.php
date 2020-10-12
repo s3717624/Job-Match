@@ -427,10 +427,11 @@ class Account
 		}
 		
 		$row = $res->fetch(PDO::FETCH_ASSOC);
-		
+		echo "uptorow ";
 		/* If there is a result, we must check if the password matches using password_verify() */
 		if (is_array($row))
 		{
+			echo"got result";
 			if (password_verify($passwd, $row['account_passwd']))
 			{
 				/* Authentication succeeded. Set the class properties (id and name) */
