@@ -821,6 +821,40 @@ class Account
         }
 
         return $education;
+	}
+	
+	public function getWebsiteFromId(int $id): ?string
+    {
+        global $pdo;
+
+        if (!$this->isIdValid($id))
+        {
+            throw new Exception('Invalid account ID');
+        }
+
+        $education = null;
+
+        $query = 'SELECT employer_website FROM login_system.accounts WHERE (account_id = :id)';
+        $values = array(':id' => $id);
+
+        try
+        {
+            $res = $pdo->prepare($query);
+            $res->execute($values);
+        }
+        catch (PDOException $e)
+        {
+            throw new Exception('Database query error');
+        }
+
+        $row = $res->fetch(PDO::FETCH_ASSOC);
+
+        if (is_array($row))
+        {
+            $education = $row['employer_website'];
+        }
+
+        return $education;
     }
 
 	public function indexAttributes()

@@ -69,10 +69,21 @@ $_SESSION['currentpage'] = "profile.php";
                             <li><p><?php echo "Full name: ".$Account->getFullNameFromId($_SESSION["user_id"]); ?></p></li><br>
                             <li><p><?php echo "Email: ".$Account->getEmailFromId($_SESSION["user_id"]); ?></p></li><br>
                             <li><p><?php echo "Phone: ".$Account->getPhoneFromId($_SESSION["user_id"]) ;?></p></li><br>
+                            <?php
+                            $employer_website = $Account->getWebsiteFromId($_SESSION['user_id']);
+                            if ($Account->typeCheck($_SESSION['user_id']) != 'employers') {
+                            ?>
                             <li><p><?php echo "Skills: ".$Account->getSkillsFromId($_SESSION["user_id"]) ;?></p></li><br>
                             <li><p><?php echo "Education: ".$Account->getEducationFromId($_SESSION["user_id"]) ;?></p></li><br>
+                            
+                            <?php
+                            }else {
+                            ?>
+                            <li><p><?php echo "<a href='".$employer_website."'>Company Website: ".$employer_website ;?></a></p></li><br>
+                            <?php
+                            }
+                            ?>
                             <a href="php/profile_edit.php" class="btn btn-success"><span class="glyphicon glyphicon-pencil">
-
                             </span></a>
                         </ul>
                     </div>
