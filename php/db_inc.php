@@ -1,22 +1,22 @@
 <?php
 
-$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+/* $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server = $cleardb_url["host"];
 $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
-$cleardb_db = substr($cleardb_url["path"], 1);
+$cleardb_db = substr($cleardb_url["path"], 1); */
 
 /* Host name of the MySQL server */
-$host = $cleardb_server;
+$host = "durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
 
 /* MySQL account username */
-$user = $cleardb_username;
+$user = "pc12yq30edvxp1o9";
 
 /* MySQL account password */
-$passwd = $cleardb_password;
+$passwd = "k34nig1nou1zifrp";
 
 /* The schema you want to use */
-$schema = $cleardb_db;
+$schema = "s9e7fl2cr9xmtxws";
 
 /* The PDO object */
 $pdo = NULL;
