@@ -412,7 +412,7 @@ class Account
 		
 		/* Values array for PDO */
 		$values = array(':name' => $name);
-		
+		echo "setarray ";
 		/* Execute the query */
 		try
 		{
@@ -425,7 +425,7 @@ class Account
 		   return $e->getMessage();
 		   echo "exception login: ".$e;
 		}
-		
+		echo "executed pdo ";
 		$row = $res->fetch(PDO::FETCH_ASSOC);
 		echo "uptorow ";
 		/* If there is a result, we must check if the password matches using password_verify() */
