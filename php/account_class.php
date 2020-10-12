@@ -71,13 +71,14 @@ class Account
         if (!$this->isIdValid($id))
         {
             throw new Exception('Invalid account ID');
-        }
+		}
+		echo "clear typecheck1";
 
         $type = null;
-
+		echo "clear typecheck2";
         $query = 'SELECT account_type FROM login_system.accounts WHERE (account_id = :id)';
         $values = array(':id' => $id);
-
+		echo "clear typecheck3";
         try
         {
             $res = $pdo->prepare($query);
@@ -85,7 +86,8 @@ class Account
         }
         catch (PDOException $e)
         {
-            throw new Exception('Database query error');
+            return $e->getMessage();
+		   echo "exception login: ".$e;
         }
 
         $row = $res->fetch(PDO::FETCH_ASSOC);
@@ -508,6 +510,7 @@ class Account
 		{
 			$valid = FALSE;
 		}
+		echo "clear idvalidcheck";
 		
 		/* You can add more checks here */
 		

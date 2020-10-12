@@ -58,13 +58,13 @@ catch (Exception $e)
     die();
 }
 
-echo "clear loggin_in 1";
+
 
 // Session Login Process
 try
 {
     $login = $account->sessionLogin();
-    echo "clear loggin_in session";
+
 }
 catch (Exception $e)
 {
@@ -73,7 +73,7 @@ catch (Exception $e)
 }
 
 $_SESSION["user_id"] = $account->getId();
-echo "clear session user id set";
+
 
 $usrtype = $account->typeCheck($_SESSION["user_id"]);
 echo "clear typecheck";
