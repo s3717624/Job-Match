@@ -452,7 +452,7 @@ class Account
 		echo "cleared login function 1";
 		
 		/* Example check: the length must be between 8 and 16 chars */
-		$len = mb_strlen($name);
+		$len = strlen($name);
 		echo "cleared login function 2";
 		if (($len < 8) || ($len > 32))
 		{
