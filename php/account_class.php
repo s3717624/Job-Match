@@ -433,7 +433,7 @@ class Account
 			if (password_verify($passwd, $row['account_passwd']))
 			{
 				/* Authentication succeeded. Set the class properties (id and name) */
-				$this->id = int($row['account_id'], 10);
+				$this->id = intval($row['account_id'], 10);
 				echo $this->id;
 				$this->name = $name;
 				echo $name;
