@@ -1,4 +1,6 @@
 <?php
+require('vendor/autoload.php');
+
 session_start();
 $_SESSION["currentpage"] = "index.php";
 

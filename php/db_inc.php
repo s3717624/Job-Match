@@ -1,16 +1,22 @@
 <?php
 
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"], 1);
+
 /* Host name of the MySQL server */
-$host = 'localhost';
+$host = $cleardb_server;
 
 /* MySQL account username */
-$user = 'outsideadmin';
+$user = $cleardb_username;
 
 /* MySQL account password */
-$passwd = 'bLb$?Se%@6@U*5CK';
+$passwd = $cleardb_password;
 
 /* The schema you want to use */
-$schema = 'login_system';
+$schema = $cleardb_db;
 
 /* The PDO object */
 $pdo = NULL;
