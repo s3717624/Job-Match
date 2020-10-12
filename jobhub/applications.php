@@ -203,7 +203,7 @@ if(isset($_GET['search_query']))
                                                 </div>
                                             </div>
                                             <div class="properties__caption">
-                                                <h3><a  ><?php $jobid = $row['job_id'];
+                                                <h3><a href="app_details.php?appid=<?php echo $row['app_id'];?>" ><?php $jobid = $row['job_id'];
                                                 $def_cnt = mysqli_num_rows($appls);
                                                 $jobquery = mysqli_query($conn,"SELECT * FROM jobs WHERE job_id = $jobid");
                                                 $jobarr = mysqli_fetch_assoc($jobquery);
