@@ -392,8 +392,7 @@ class Account
 		/* Trim the strings to remove extra spaces */
 		$name = trim($name);
 		$passwd = trim($passwd);
-		echo $name;
-		echo $passwd;
+
 
 		
 		/* Check if the user name is valid. If not, return FALSE meaning the authentication failed */
@@ -507,7 +506,7 @@ class Account
 	/* A sanitization check for the account ID */
 	public function isIdValid(int $id): bool
 	{
-		/* Initialize the return variable */
+		echo "isidvalid0 ";/* Initialize the return variable */
 		$valid = TRUE;
 		echo "isidvalid1 ";
 		
