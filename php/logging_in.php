@@ -73,7 +73,7 @@ catch (Exception $e)
 }
 
 $_SESSION["user_id"] = $account->getId();
-
+echo $_SESSION["user_id"];
 echo "up to typecheck ";
 $usrtype = $account->typeCheck($_SESSION["user_id"]);
 echo "clear typecheck";

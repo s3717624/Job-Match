@@ -70,7 +70,7 @@ class Account
 	{
 		global $pdo;
 		echo "clear typecheck0 ";
-
+		echo $id;
         if (!$this->isIdValid($id))
         {
             throw new Exception('Invalid account ID');
@@ -435,7 +435,7 @@ class Account
 			{
 				/* Authentication succeeded. Set the class properties (id and name) */
 				$this->id = intval($row['account_id'], 10);
-
+				echo "hello login setting id".$this->id;
 				$this->name = $name;
 
 				$this->authenticated = TRUE;
