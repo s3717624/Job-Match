@@ -449,22 +449,21 @@ class Account
 		/* Initialize the return variable */
 		$valid = TRUE;
 
-		echo "cleared login function 1";
 		
 		/* Example check: the length must be between 8 and 16 chars */
 		$len = strlen($name);
-		echo "cleared login function 2";
+
 		if (($len < 8) || ($len > 32))
 		{
 			$valid = FALSE;
 		}
-		echo "cleared login function 3";
+
 
 		if (!preg_match('/^[A-Za-z0-9][A-Za-z0-9_. ]*[A-Za-z0-9]$/', $name))
         {
             $valid = FALSE;
 		}
-		echo "cleared login function 4";
+
 		
 		/* You can add more checks here */
 		
@@ -478,7 +477,7 @@ class Account
 		$valid = TRUE;
 		
 		/* Example check: the length must be between 8 and 16 chars */
-		$len = mb_strlen($passwd);
+		$len = strlen($passwd);
 		
 		if (($len < 8) || ($len > 32))
 		{
@@ -528,7 +527,7 @@ class Account
     {
         $valid = TRUE;
 
-        $len = mb_strlen($phone);
+        $len = strlen($phone);
 
         if (!($len == 10))
         {
