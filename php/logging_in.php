@@ -17,7 +17,6 @@ $login = false;
 echo "Your username is: ".$_POST["username"]."<br>";
 echo "Your password is: ".$_POST["password"]."<br>";
 
-header("Location: ../login.php");
 
 if($_POST["username"] == "" && $_POST["password"] == "")
 {
@@ -35,6 +34,7 @@ if($_POST["username"] == "" && $_POST["password"] == "")
 }
 
 $_SESSION["password"] = $_POST["password"];
+echo "cleared session set";
 
 if (!isset($_POST["username"]) || !isset($_POST["password"]))
 {
@@ -44,10 +44,14 @@ if (!isset($_POST["username"]) || !isset($_POST["password"]))
         header("Location: ../");
 }
 
+echo "cleared post set";
+
 // Login Process
 try {
     $login = $account->login($_POST["username"], $_POST["password"]);
+    echo "cleared login";
 }
+
 
 catch (Exception $e)
 {

@@ -387,19 +387,21 @@ class Account
 		/* Trim the strings to remove extra spaces */
 		$name = trim($name);
 		$passwd = trim($passwd);
+
+		echo "cleared login function 1";
 		
 		/* Check if the user name is valid. If not, return FALSE meaning the authentication failed */
 		if (!$this->isNameValid($name))
 		{
 			return FALSE;
 		}
-		
+		echo "cleared login function 2";
 		/* Check if the password is valid. If not, return FALSE meaning the authentication failed */
 		if (!$this->isPasswdValid($passwd))
 		{
 			return FALSE;
 		}
-		
+		echo "cleared login function 3";
 		/* Look for the account in the db. Note: the account must be enabled (account_enabled = 1) */
 		$query = 'SELECT * FROM login_system.accounts WHERE (account_name = :name) AND (account_enabled = 1)';
 		
