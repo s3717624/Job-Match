@@ -192,7 +192,7 @@ if(!(isset($_SESSION['user_id'])))
                                     <input type="text" placeholder="Enter Username" name="username" id="username" value="<?php echo $Account->getNameFromId($_SESSION["user_id"]); ?>" >
 
                                     <label for="password"><b>Password</b></label>
-                                    <input type="password" placeholder="Enter Password" name="password" id="password" value="">
+                                    <input type="password" placeholder="Enter Password" name="password" id="password" value="<?php echo $_SESSION["password"] ?>">
 
                                     <label for="name"><b>Name</b></label>
                                     <input type="text" placeholder="Enter Name" name="fullname" id="fullname" value="<?php echo $Account->getFullNameFromId($_SESSION["user_id"]); ?>">
@@ -202,10 +202,23 @@ if(!(isset($_SESSION['user_id'])))
 
                                     <label for="phone"><b>Phone Number</b></label>
                                     <input type="text" placeholder="Enter Phone Number" name="phone" id="phone" value="<?php echo $Account->getPhoneFromId($_SESSION["user_id"]); ?>">
+                                    
 
+                                    <?php
+                                    if ($Account->typeCheck($_SESSION['user_id']) == 'applicants') {
+                                    
+                                    ?>
                                     <label for="skills"><b>Skills</b></label><textarea name="skills" id="skills" form="form" ><?php echo $Account->getSkillsFromId($_SESSION["user_id"]);?></textarea>
                                     <label for="education"><b>Education</b></label><textarea name="education" id="education" form="form"><?php echo $Account->getEducationFromId($_SESSION["user_id"]); ?></textarea>
                                     <hr>
+                                    
+                                    <?php 
+                                    }else{
+                                    ?>
+                                    <label for="website"><b>Website</b></label>
+                                    <input type="text" placeholder="Enter Website" name="website" id="website" value="<?php echo $Account->getWebsiteFromId($_SESSION["user_id"]); ?>">
+
+                                    <?php } ?>
                                     <button type="submit" name="submit" class="registerbtn">Update</button>
                                 </div>
 
@@ -331,27 +344,50 @@ if (isset($_POST['submit'])) {
     }
 
     if ($pass) {
-        try
-        {
-            $Account->editAccount($_SESSION["user_id"],
-                $_POST["username"],
-                $_POST["password"],
-                $_POST["fullname"],
-                $_POST["email"],
-                $_POST["phone"],
-                $_POST["skills"],
-                $_POST["education"],
-                TRUE);
+        if ($Account->typeCheck($_SESSION['user_id']) == 'applicants') {
+            try
+            {
+                $Account->editAccount($_SESSION["user_id"],
+                    $_POST["username"],
+                    $_POST["password"],
+                    $_POST["fullname"],
+                    $_POST["email"],
+                    $_POST["phone"],
+                    $_POST["skills"],
+                    $_POST["education"],
+                    TRUE);
 
-                $Account->indexAttributes();
-                echo "<script type='text/javascript'> document.location = '../profile.php'; </script>";
-        }
-        catch (Exception $e)
-        {
-            echo $e->getMessage();
-            die();
-        }
+                    $Account->indexAttributes();
+                    echo "<script type='text/javascript'>alert('Profile has been updated!');</script>";
+                    echo "<script type='text/javascript'> document.location = '../profile.php'; </script>";
+            }
+            catch (Exception $e)
+            {
+                echo $e->getMessage();
+                die();
+            }
+        }else{
+            try
+            {
+                $Account->editAccountEmployer($_SESSION["user_id"],
+                    $_POST["username"],
+                    $_POST["password"],
+                    $_POST["fullname"],
+                    $_POST["email"],
+                    $_POST["phone"],
+                    $_POST["website"],
+                    TRUE);
 
+                    $Account->indexAttributes();
+                    echo "<script type='text/javascript'>alert('Profile has been updated!');</script>";
+                    echo "<script type='text/javascript'> document.location = '../profile.php'; </script>";
+            }
+            catch (Exception $e)
+            {
+                echo $e->getMessage();
+                die();
+            }
+        }
         
     
     }
