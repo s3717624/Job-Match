@@ -32,6 +32,7 @@
                                                     
                                                 }else{
                                                     echo '<li><a href="listing.php">Listings</a></li>';
+                                                    echo '<li><a href="applications.php">Your applications</a></li>';
                                                 }
                                                 ?>
                                                 <li><?php
