@@ -429,6 +429,7 @@ class Account
 			{
 				/* Authentication succeeded. Set the class properties (id and name) */
 				$this->id = intval($row['account_id'], 10);
+				echo $name;
 				$this->name = $name;
 				$this->authenticated = TRUE;
 				

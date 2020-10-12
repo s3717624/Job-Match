@@ -49,7 +49,6 @@ if (!isset($_POST["username"]) || !isset($_POST["password"]))
 // Login Process
 try {
     $login = $account->login($_POST["username"], $_POST["password"]);
-    echo "cleared login";
 }
 
 
@@ -59,23 +58,13 @@ catch (Exception $e)
     die();
 }
 
-if ($login)
-{
-    echo 'Authentication successful (login).' . '<br>';
-    echo 'Account ID: ' . $account->getId() . '<br>';
-    echo 'Account name: ' . $account->getName() . '<br>';
-}
-
-else
-{
-    $_SESSION["incorrect_username_password"] = true;
-    header("Location: ../login.php");
-}
+echo "clear loggin_in 1";
 
 // Session Login Process
 try
 {
     $login = $account->sessionLogin();
+    echo "clear loggin_in session";
 }
 catch (Exception $e)
 {
@@ -84,9 +73,10 @@ catch (Exception $e)
 }
 
 $_SESSION["user_id"] = $account->getId();
+echo "clear session user id set";
 
 $usrtype = $account->typeCheck($_SESSION["user_id"]);
-
+echo "clear typecheck";
 if ($login)
 {
     echo 'Authentication successful (session login).<br>';
@@ -102,7 +92,8 @@ if ($login)
     
 }
 else
-{
+{   
+    $_SESSION["incorrect_username_password"] = true;
     $_SESSION["session_error"] = true;
     header("Location: ../login.php");
 }
