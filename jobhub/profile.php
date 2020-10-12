@@ -70,7 +70,7 @@ $_SESSION['currentpage'] = "profile.php";
                             <li><p><?php echo "Email: ".$Account->getEmailFromId($_SESSION["user_id"]); ?></p></li><br>
                             <li><p><?php echo "Phone: ".$Account->getPhoneFromId($_SESSION["user_id"]) ;?></p></li><br>
                             <?php
-                            $employer_website = $Account->getWebsiteFromId($_SESSION['user_id']);
+                            
                             if ($Account->typeCheck($_SESSION['user_id']) != 'employers') {
                             ?>
                             <li><p><?php echo "Skills: ".$Account->getSkillsFromId($_SESSION["user_id"]) ;?></p></li><br>
@@ -78,6 +78,7 @@ $_SESSION['currentpage'] = "profile.php";
                             
                             <?php
                             }else {
+                                $employer_website = $Account->getWebsiteFromId($_SESSION['user_id']);
                             ?>
                             <li><p><?php echo "<a href='".$employer_website."'>Company Website: ".$employer_website ;?></a></p></li><br>
                             <?php
