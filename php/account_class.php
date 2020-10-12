@@ -388,20 +388,19 @@ class Account
 		$name = trim($name);
 		$passwd = trim($passwd);
 
-		echo "cleared login function 1";
 		
 		/* Check if the user name is valid. If not, return FALSE meaning the authentication failed */
 		if (!$this->isNameValid($name))
 		{
 			return FALSE;
 		}
-		echo "cleared login function 2";
+
 		/* Check if the password is valid. If not, return FALSE meaning the authentication failed */
 		if (!$this->isPasswdValid($passwd))
 		{
 			return FALSE;
 		}
-		echo "cleared login function 3";
+
 		/* Look for the account in the db. Note: the account must be enabled (account_enabled = 1) */
 		$query = 'SELECT * FROM login_system.accounts WHERE (account_name = :name) AND (account_enabled = 1)';
 		
@@ -449,19 +448,23 @@ class Account
 	{
 		/* Initialize the return variable */
 		$valid = TRUE;
+
+		echo "cleared login function 1";
 		
 		/* Example check: the length must be between 8 and 16 chars */
 		$len = mb_strlen($name);
-		
+		echo "cleared login function 2";
 		if (($len < 8) || ($len > 32))
 		{
 			$valid = FALSE;
 		}
+		echo "cleared login function 3";
 
 		if (!preg_match('/^[A-Za-z0-9][A-Za-z0-9_. ]*[A-Za-z0-9]$/', $name))
         {
             $valid = FALSE;
-        }
+		}
+		echo "cleared login function 4";
 		
 		/* You can add more checks here */
 		

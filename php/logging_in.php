@@ -34,7 +34,7 @@ if($_POST["username"] == "" && $_POST["password"] == "")
 }
 
 $_SESSION["password"] = $_POST["password"];
-echo "cleared session set";
+
 
 if (!isset($_POST["username"]) || !isset($_POST["password"]))
 {
@@ -44,7 +44,7 @@ if (!isset($_POST["username"]) || !isset($_POST["password"]))
         header("Location: ../");
 }
 
-echo "cleared post set";
+
 
 // Login Process
 try {
