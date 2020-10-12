@@ -49,12 +49,14 @@ class Account
 	/* "Getter" function for the $id variable */
 	public function getId(): ?int
 	{
+		echo $this->id;
 		return $this->id;
 	}
 	
 	/* "Getter" function for the $name variable */
 	public function getName(): ?string
-	{
+	{	
+		echo $this->name;
 		return $this->name;
 	}
 	
@@ -434,9 +436,8 @@ class Account
 			{
 				/* Authentication succeeded. Set the class properties (id and name) */
 				$this->id = intval($row['account_id'], 10);
-				echo $this->id;
+
 				$this->name = $name;
-				echo $name;
 
 				$this->authenticated = TRUE;
 				
