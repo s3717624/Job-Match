@@ -412,16 +412,18 @@ class Account
 		
 		/* Values array for PDO */
 		$values = array(':name' => $name);
-		echo "setarray ";
+
 		/* Execute the query */
 		try
 		{
 			$res = $pdo->prepare($query);
 			$res->execute($values);
+			echo "executed pdo1 ";
 		}
 		catch (PDOException $e)
 		{
 		   /* If there is a PDO exception, throw a standard exception */
+		   throw new Exception("wtf");
 		   return $e->getMessage();
 		   echo "exception login: ".$e;
 		}
