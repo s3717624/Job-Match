@@ -417,6 +417,7 @@ class Account
 		{
 		   /* If there is a PDO exception, throw a standard exception */
 		   throw new Exception('Database query error');
+		   echo $e->getMessage();
 		}
 		
 		$row = $res->fetch(PDO::FETCH_ASSOC);
