@@ -17,6 +17,8 @@ $login = false;
 echo "Your username is: ".$_POST["username"]."<br>";
 echo "Your password is: ".$_POST["password"]."<br>";
 
+header("Location: ../login.php");
+
 if($_POST["username"] == "" && $_POST["password"] == "")
 {
     $_SESSION["no_username"] = true;

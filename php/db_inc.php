@@ -6,6 +6,7 @@ $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
 $cleardb_db = substr($cleardb_url["path"], 1); */
 
+
 /* Host name of the MySQL server */
 $host = "durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
 
