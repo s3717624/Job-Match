@@ -370,7 +370,7 @@ hr {
 .overlay1::before {
   position: absolute;
   content: "";
-  background-color: rgba(0, 1, 2, 0.5);
+  background-color: #007bff;
   width: 100%;
   height: 100%;
   left: 0;
@@ -3813,7 +3813,7 @@ hr {
 
 /* line 155, C:/Users/HP/Desktop/July-HTML/287.Job_board/Job_board_Template/assets/scss/_h1-hero.scss */
 .slider-area form.search-box .input-form, .slider-area2 form.search-box .input-form {
-  width: 26%;
+  width: 79%;
   position: relative;
   border-top-left-radius: 50px;
   overflow: hidden;
@@ -4177,7 +4177,7 @@ hr {
 .hero-overly::before {
   position: absolute;
   content: "";
-  background-color: rgba(0, 1, 2, 0.4);
+  /* background-color: rgba(0, 1, 2, 0.4); */
   width: 100%;
   height: 100%;
   left: 0;
@@ -4198,7 +4198,7 @@ hr {
 .hero-overly2::before {
   position: absolute;
   content: "";
-  background-color: rgba(0, 0, 50, 0.7);
+  /* background-color: rgba(0, 0, 50, 0.7); */
   width: 100%;
   height: 100%;
   left: 0;
@@ -5637,18 +5637,18 @@ hr {
 
 /* line 102, C:/Users/HP/Desktop/July-HTML/287.Job_board/Job_board_Template/assets/scss/_details.scss */
 .details-cap .properties__caption h3 {
-  color: #ffff;
+  color: #6c757d;
   font-size: 18px;
 }
 
 /* line 106, C:/Users/HP/Desktop/July-HTML/287.Job_board/Job_board_Template/assets/scss/_details.scss */
 .details-cap .properties__caption h3 a:hover {
-  color: ffff;
+  color: #6c757d;
 }
 
 /* line 111, C:/Users/HP/Desktop/July-HTML/287.Job_board/Job_board_Template/assets/scss/_details.scss */
 .details-cap .properties__caption p {
-  color: #fff;
+  color:#6c757d;
 }
 
 @media (max-width: 575px) {

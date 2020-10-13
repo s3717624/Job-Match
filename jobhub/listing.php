@@ -168,17 +168,6 @@ if(isset($_GET['search_query']))
                                 <div class="input-form">
                                     <input type="text" name="search_query" placeholder="What are you finding?">
                                 </div>
-                                <div class="select-form">
-                                    <div class="select-itms">
-                                        <select name="select" id="select1">
-                                            <option value="">In where?</option>
-                                            <option value="">Catagories One</option>
-                                            <option value="">Catagories Two</option>
-                                            <option value="">Catagories Three</option>
-                                            <option value="">Catagories Four</option>
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="search-form">
                                     <a href="#" onclick="document.getElementById('jobsearch').submit()"><i class="ti-search"></i> Search</a>
                                 </div>	
@@ -571,9 +560,9 @@ if(isset($_GET['search_query']))
                                                                 <img src="assets/img/gallery/restaurant-icon.png" alt="">
                                                                 <h3>$<?php echo $row['job_salary'];?></h3>
                                                             </div>
-                                                            <div class="heart">
+                                                            <!-- <div class="heart">
                                                                 <img src="assets/img/gallery/heart1.png" alt="">
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -611,9 +600,9 @@ if(isset($_GET['search_query']))
                                                     <img src="assets/img/gallery/restaurant-icon.png" alt="">
                                                     <h3>$<?php echo $row['job_salary'];?></h3>
                                                 </div>
-                                                <div class="heart">
+                                                <!-- <div class="heart">
                                                     <img src="assets/img/gallery/heart1.png" alt="">
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -650,9 +639,9 @@ if(isset($_GET['search_query']))
                                                     <img src="assets/img/gallery/restaurant-icon.png" alt="">
                                                     <h3>$<?php echo $row['job_salary'];?></h3>
                                                 </div>
-                                                <div class="heart">
+                                                <!-- <div class="heart">
                                                     <img src="assets/img/gallery/heart1.png" alt="">
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -703,9 +692,9 @@ if(isset($_GET['search_query']))
                                                     <img src="assets/img/gallery/restaurant-icon.png" alt="">
                                                     <h3>$<?php echo $row['job_salary'];?></h3>
                                                 </div>
-                                                <div class="heart">
+                                                <!-- <div class="heart">
                                                     <img src="assets/img/gallery/heart1.png" alt="">
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -754,9 +743,9 @@ if(isset($_GET['search_query']))
                                                     <img src="assets/img/gallery/restaurant-icon.png" alt="">
                                                     <h3>$<?php echo $row['job_salary'];?></h3>
                                                 </div>
-                                                <div class="heart">
+                                                <!-- <div class="heart">
                                                     <img src="assets/img/gallery/heart1.png" alt="">
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>

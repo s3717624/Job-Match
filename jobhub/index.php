@@ -71,9 +71,9 @@ $Account = new Account();
                                         <i class="fas fa-pencil-alt"></i>
                                     </div>
                                 </div>
-                                <div class="input-form2">
+                                <!-- <div class="input-form2">
                                     <input type="text"  name="state" placeholder="Where?">
-                                    <!-- icon -->
+
                                     <div class="icon">
                                         <i class="fas fa-map-marker-alt"></i>
                                     </div>
@@ -88,7 +88,7 @@ $Account = new Account();
                                             <option value="">Catagories Four</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="search-form">
                                     <a href="#" onclick="document.getElementById('jobsearch').submit()"><i class="fas fa-search"></i> Search</a>
                                 </div>		
@@ -145,11 +145,11 @@ $Account = new Account();
         </div>-->
         <!-- Brand Area End -->
         <!--? Our Services Start -->
-        <section class="our-services  section-padding40">
+        <!-- <section class="our-services  section-padding40">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-8">
-                        <!-- Section Tittle -->
+                        
                         <div class="section-tittle text-center mb-80">
                             <h2>Browse from over <span style="color:#367FFF ;"> 2000+</span> jobs</h2>
                             <p>The automated process starts as soon as your clothes go into the machine. The outcome is 
@@ -232,23 +232,23 @@ $Account = new Account();
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- Our Services End -->
         <!--? About Area Start-->
         <section class="about-area fix">
             <!--Right Contents  -->
-            <div class="about-img">
+            <!-- <div class="about-img">
                 <div class="info-man text-center">
                     <div class="head-cap">
                         <h3>89027+</h3>
                     </div>
                     <p>Talented waiting for hire</p>
                 </div>
-            </div>
+            </div> -->
             <!-- left Contents -->
-            <div class="about-details">
+            <!-- <div class="about-details">
                 <div class="right-caption">
-                    <!-- Section Tittle -->
+                    
                     <div class="section-tittle mb-20">
                         <h2>Want to hire perfect person?</h2>
                     </div>
@@ -257,15 +257,15 @@ $Account = new Account();
                         <a href="#" class="btn">Browse Talents</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
         <!-- About Area End-->
         <!--? Top Jobs Start -->
-        <section class="top-jobs  section-padding40 fix">
+        <!-- <section class="top-jobs  section-padding40 fix">
             <div class="container-fluid p-0">
                 <div class="row justify-content-center">
                     <div class="col-xl-4 col-lg-7 col-md-9">
-                        <!-- Section Tittle -->
+                        
                         <div class="section-tittle text-center mb-80">
                             <h2>Browse top jobs</h2>
                             <p>The automated process starts as soon as your clothes go into the machine. The outcome is 
@@ -274,7 +274,7 @@ $Account = new Account();
                     </div>
                 </div>
                 <div class="top-job-slider">
-                    <!-- Single -->
+                    
                     <div class="single-top-jobs">
                         <div class="services-ion">
                             <img src="assets/img/icon/jon-iocn1.svg" alt="">
@@ -288,7 +288,7 @@ $Account = new Account();
                             <span>Remote</span>
                         </div>
                     </div>
-                    <!-- Single -->
+                    
                     <div class="single-top-jobs">
                         <div class="services-ion">
                             <img src="assets/img/icon/jon-iocn2.svg" alt="">
@@ -302,7 +302,7 @@ $Account = new Account();
                             <span>Remote</span>
                         </div>
                     </div>
-                    <!-- Single -->
+                    
                     <div class="single-top-jobs">
                         <div class="services-ion">
                             <img src="assets/img/icon/jon-iocn3.svg" alt="">
@@ -316,7 +316,7 @@ $Account = new Account();
                             <span>Remote</span>
                         </div>
                     </div>
-                    <!-- Single -->
+                    
                     <div class="single-top-jobs">
                         <div class="services-ion">
                             <img src="assets/img/icon/jon-iocn4.svg" alt="">
@@ -330,7 +330,7 @@ $Account = new Account();
                             <span>Remote</span>
                         </div>
                     </div>
-                    <!-- Single -->
+                    
                     <div class="single-top-jobs">
                         <div class="services-ion">
                             <img src="assets/img/icon/jon-iocn5.svg" alt="">
@@ -344,7 +344,7 @@ $Account = new Account();
                             <span>Remote</span>
                         </div>
                     </div>
-                    <!-- Single -->
+                    
                     <div class="single-top-jobs">
                         <div class="services-ion">
                             <img src="assets/img/icon/jon-iocn2.svg" alt="">
@@ -360,7 +360,7 @@ $Account = new Account();
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- Top Jobs End -->
         <!--? job Post Start -->
         <section class="job-post  pt-top section-bg2">
@@ -420,10 +420,10 @@ $Account = new Account();
         <div class="footer-area footer-padding">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xl-3 col-lg-5 col-md-4 col-sm-6">
+                    <!-- <div class="col-xl-3 col-lg-5 col-md-4 col-sm-6">
                         <div class="single-footer-caption mb-50">
                             <div class="single-footer-caption mb-30">
-                                <!-- logo -->
+                                
                                 <div class="footer-logo mb-25">
                                     <a href="index.php"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                 </div>
@@ -432,7 +432,7 @@ $Account = new Account();
                                         <p>The automated process starts as  soon as your clothes go into the machine.</p>
                                     </div>
                                 </div>
-                                <!-- social -->
+                                
                                 <div class="footer-social">
                                     <a href="#"><i class="fab fa-twitter"></i></a>
                                     <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
@@ -440,8 +440,8 @@ $Account = new Account();
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
+                    </div> -->
+                    <!-- <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
                                 <h4>Top categories</h4>
@@ -454,8 +454,8 @@ $Account = new Account();
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                    </div> -->
+                    <!-- <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
                                 <h4>For employer</h4>
@@ -468,8 +468,8 @@ $Account = new Account();
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
+                    </div> -->
+                    <!-- <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
                                 <h4>Company</h4>
@@ -482,14 +482,14 @@ $Account = new Account();
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                    </div> -->
+                    <!-- <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle mb-50">
                                 <h4>Subscribe newsletter</h4>
                                 <p>Subscribe newsletter to get updates.</p>
                             </div>
-                            <!-- Form -->
+                            
                             <div class="footer-form" >
                                 <div id="mc_embed_signup">
                                     <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
@@ -505,7 +505,7 @@ $Account = new Account();
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
