@@ -72,9 +72,9 @@ $_SESSION['currentpage'] = "compose.php";
             <div class="col-lg-8 messege-right p-3 border">
 						<div class="row m-0">
 							<div class="col-lg-12 bg-light text-white">
-								<div class="row">
-									<div class="col-lg-6">
-										<h1 class="pt-2">New Message</h1>
+								<div class="row" style="background:#b2d7ff;">
+									<div class="col-lg-6" style="background:#b2d7ff;">
+										<h1 class="pt-2" style="font-size:24px;">New Message</h1>
 									</div>
 									
 								</div>
@@ -88,7 +88,7 @@ $_SESSION['currentpage'] = "compose.php";
                                           if (isset($_REQUEST['replyto'])) {
                                             $replyto = $_REQUEST['replyto'];
                                             $user_from = $Account->getNameFromId($replyto);
-                                            echo '<input readonly type="text" class="form-control" id="replyto"  value="'. $user_from . '">';
+                                            echo '<input readonly type="text" class="form-control" id="replyto"  value="'. $user_from . '" style="font-size:20px; padding:20px 15px 20px;">';
 
                                             }else{
 
@@ -116,14 +116,14 @@ $_SESSION['currentpage'] = "compose.php";
                                           
                                           ?>
 								    	
-								    	<input type="text" class="form-control" id="subject" name="subject"  placeholder="Subject">
-								  		<textarea class="form-control" id="message" name="message" rows="6"></textarea>
+								    	<input type="text" class="form-control" id="subject" name="subject"  placeholder="Subject" style="font-size:20px; padding:20px 15px 20px;">
+								  		<textarea class="form-control" id="message" name="message" rows="6" style="font-size:20px; padding:20px 15px 20px;"></textarea>
 								  	</div>
 								 </form>
 							</div>
 							<div class="co-lg-12 message-box-last-content p-2">
                             
-								<button type="submit" name="submit" form="submit" class="btn btn-primary btn-sm pl-3 pr-3">SEND</button>
+								<button type="submit" name="submit" form="submit" class="btn btn-primary btn-sm pl-3 pr-3" style="padding:20px 10px; margin-top:8px;">SEND</button>
 								
 							</div>
 						</div>

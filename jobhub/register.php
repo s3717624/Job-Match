@@ -141,10 +141,8 @@ $_SESSION['currentpage'] = "register.php";
                         <div class="form-input">
                             <p style="color: red;"><?php echo $type_error; ?></p>
                             <label for="name">Account type</label><br>
-                            <div class="halfcolumn">
                             <label for="name">Applicant<input type="radio" name="type" value="applicants"></label><br>
                             <label for="name">Employer<input type="radio" name="type" value="employers"></label><br>
-                            </div>
                         </div>
                     <div class="form-input">
                         <p style="color: red;"><?php echo $username_error; ?></p>

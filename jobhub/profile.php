@@ -58,23 +58,23 @@ $_SESSION['currentpage'] = "profile.php";
                     <!-- Hero Caption -->
                     <div class="hero__caption">
                         <h1><?php echo "Welcome ".$Account->getFullNameFromId($_SESSION["user_id"])."."; ?></h1>
-                        <p>This is your profile, where you can view your jobs, and edit your information.</p>
+                        <p style="margin-bottom:0px;">This is your profile, where you can view your jobs, and edit your information.</p>
                     </div>
                 </div>
 
                 <div class="col-lg-12">
-                    <div class="popular-search text-center pt-30">
-                        <ul>
-                            <li><p><?php echo "Username: ".$Account->getNameFromId($_SESSION["user_id"]); ?></p></li><br>
-                            <li><p><?php echo "Full name: ".$Account->getFullNameFromId($_SESSION["user_id"]); ?></p></li><br>
-                            <li><p><?php echo "Email: ".$Account->getEmailFromId($_SESSION["user_id"]); ?></p></li><br>
-                            <li><p><?php echo "Phone: ".$Account->getPhoneFromId($_SESSION["user_id"]) ;?></p></li><br>
+                    <div class="popular-search text-center pt-30" style="margin:20px 150px; background:white; padding:10px; border-radius:20px; box-shadow: 6px 12px 10px #0056b2;">
+                        <ul style="text-align:left; margin:20px;">
+                            <li><p style="font-size:24px; color:black;"><label style="font-size: 24px;">Username:</label><?php echo " ".$Account->getNameFromId($_SESSION["user_id"]); ?></p></li><br>
+                            <li><p style="font-size:24px; color:black;"><label style="font-size: 24px;">Full name:</label><?php echo " ".$Account->getFullNameFromId($_SESSION["user_id"]); ?></p></li><br>
+                            <li><p style="font-size:24px; color:black;"><label style="font-size: 24px;">Email: </label><?php echo " ".$Account->getEmailFromId($_SESSION["user_id"]); ?></p></li><br>
+                            <li><p style="font-size:24px; color:black;"><label style="font-size: 24px;">Phone: </label><?php echo " ".$Account->getPhoneFromId($_SESSION["user_id"]) ;?></p></li><br>
                             <?php
                             
                             if ($Account->typeCheck($_SESSION['user_id']) != 'employers') {
                             ?>
-                            <li><p><?php echo "Skills: ".$Account->getSkillsFromId($_SESSION["user_id"]) ;?></p></li><br>
-                            <li><p><?php echo "Education: ".$Account->getEducationFromId($_SESSION["user_id"]) ;?></p></li><br>
+                            <li><p style="font-size:24px; color:black;"><label style="font-size: 24px;">Skills: </label><?php echo " ".$Account->getSkillsFromId($_SESSION["user_id"]) ;?></p></li><br>
+                            <li><p style="font-size:24px; color:black;"><label style="font-size: 24px;">Education: </label><?php echo " ".$Account->getEducationFromId($_SESSION["user_id"]) ;?></p></li><br>
                             
                             <?php
                             }else {

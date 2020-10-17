@@ -235,7 +235,7 @@ $Account = new Account();
         </section> -->
         <!-- Our Services End -->
         <!--? About Area Start-->
-        <section class="about-area fix">
+        <!-- <section class="about-area fix"> -->
             <!--Right Contents  -->
             <!-- <div class="about-img">
                 <div class="info-man text-center">
@@ -258,7 +258,7 @@ $Account = new Account();
                     </div>
                 </div>
             </div> -->
-        </section>
+        <!-- </section> -->
         <!-- About Area End-->
         <!--? Top Jobs Start -->
         <!-- <section class="top-jobs  section-padding40 fix">
@@ -363,7 +363,7 @@ $Account = new Account();
         </section> -->
         <!-- Top Jobs End -->
         <!--? job Post Start -->
-        <section class="job-post  pt-top section-bg2">
+        <!-- <section class="job-post  pt-top section-bg2">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 ">
@@ -392,10 +392,10 @@ $Account = new Account();
                     </div>
                 </div>  
             </div>
-        </section>
+        </section> -->
         <!-- job Post End -->
         <!--? Want To work 01-->
-        <section class="wantToWork-area">
+        <!-- <section class="wantToWork-area">
             <div class="container">
                 <div class="wants-wrapper w-padding2">
                     <div class="row align-items-center justify-content-between">
@@ -411,15 +411,15 @@ $Account = new Account();
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- Want To work End -->
     </main>
-    <footer>
-     <div class="footer-wrappper pl-100 pr-100 section-bg" data-background="assets/img/gallery/footer-bg.png">
+    <!-- <footer>
+     <div class="footer-wrappper pl-100 pr-100 section-bg" data-background="assets/img/gallery/footer-bg.png"> -->
         <!-- Footer Start-->
-        <div class="footer-area footer-padding">
+        <!-- <div class="footer-area footer-padding">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row"> -->
                     <!-- <div class="col-xl-3 col-lg-5 col-md-4 col-sm-6">
                         <div class="single-footer-caption mb-50">
                             <div class="single-footer-caption mb-30">
@@ -506,10 +506,10 @@ $Account = new Account();
                             </div>
                         </div>
                     </div> -->
-                </div>
+                <!-- </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- footer-bottom area -->
     <div class="footer-bottom-area">
         <div class="container">

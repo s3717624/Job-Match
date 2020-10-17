@@ -90,8 +90,8 @@ $_SESSION['currentpage'] = "inbox.php";
                           
                       </div>
                       
-                      <div class="inbox-body">
-                         <div class="mail-option">
+                        <div class="inbox-body">
+                            <div class="mail-option">
                             <h1><?php echo $subject; ?></h1> 
                             
                             <br/>
@@ -99,14 +99,19 @@ $_SESSION['currentpage'] = "inbox.php";
                             From: <?php echo $user_from; ?> < <?php echo $user_from_acc;?> >
                              
                             <br/>
+                            </div>
+                            </div>
+                        <div class="inbox-body">
+                        <div class="mail-option">
                             <br/>
 
                             <h2><?php echo $message; ?></h2>
-                             
+                            
                          </div>
-                          
                       </div>
-                      <button class="btn btn-primary btn-sm pl-3 pr-3" style="font-size:24px; color: black;" onclick = " window.location = 'compose.php?replyto=<?php echo $row['user_from'];?> ' ">Reply <i class="fa fa-mail-reply"></i></button>
+                          
+                      
+                      <button class="btn btn-primary btn-sm pl-3 pr-3" style="font-size:20px; color: black; margin:10px; padding:15px 25px;" onclick = " window.location = 'compose.php?replyto=<?php echo $row['user_from'];?> ' ">Reply <i class="fa fa-mail-reply"></i></button>
                   </aside>
               </div>
 </div>

@@ -187,6 +187,13 @@ if(isset($_GET['search_query']))
                             <div class="col-12">
                                 <div class="small-section-tittle2 mb-45">
                                     <h4>Advanced Filter</h4>
+                                    <form action="listing.php" name="alljobsform" method="get" style="margin:10px 0px;">
+                                        <input class ="page-link" type="submit" id ="alljobsbtn" name="alljobsbtn" value="Show all jobs">
+                                    </form>
+
+                                    <form action="listing.php" name="matchform"method="get" style="margin:10px 0px;">
+                                        <input class ="page-link" type="submit" id ="matchbtn" name="matchbtn" value="Match jobs">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -339,13 +346,7 @@ if(isset($_GET['search_query']))
                     <div class="col-xl-8 col-lg-8 col-md-6">
                         <div class="row">
                             <div class="col-lg-12">
-                            <form action="listing.php" name="alljobsform" method="get">
-                                <input class ="page-link" type="submit" id ="alljobsbtn" name="alljobsbtn" value="Show all jobs">
-                            </form>
-
-                            <form action="listing.php" name="matchform"method="get">
-                                <input class ="page-link" type="submit" id ="matchbtn" name="matchbtn" value="Match jobs">
-                            </form>
+                            
 
                             
                                 <div class="count mb-35">
