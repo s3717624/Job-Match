@@ -80,7 +80,7 @@ $_SESSION['currentpage'] = "profile.php";
                             }else {
                                 $employer_website = $Account->getWebsiteFromId($_SESSION['user_id']);
                             ?>
-                            <li><p><?php echo "<a href='".$employer_website."'>Company Website: ".$employer_website ;?></a></p></li><br>
+                            <li><p style="color:black;">Company Website:<?php echo "<a style='color:black;' href='".$employer_website."'> ".$employer_website ;?></a></p></li><br>
                             <?php
                             }
                             ?>
