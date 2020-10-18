@@ -30,7 +30,7 @@
                                                     echo "<li>".$modified_link2.$add_job_text."</a></li>";
                                                     echo "<li><a href='joblist.php'>Your Listings</a></li>";
                                                     
-                                                }else{
+                                                }else if (isset($_SESSION["user_id"]) && ($Account->typeCheck($_SESSION['user_id'])) == 'applicants') {
                                                     echo '<li><a href="listing.php">Listings</a></li>';
                                                     echo '<li><a href="applications.php">Your applications</a></li>';
                                                 }
