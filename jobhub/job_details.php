@@ -175,19 +175,6 @@ $jobapply = date( 'd/m/Y', strtotime($row['job_apply_date']));
                                 <a href="job_app.php?jobid=<?php echo $row['job_id'];?>" class="btn">Apply Now</a>
                             </div>
                         </div>
-                        <div class="post-details4  mb-50">
-                            <!-- Small Section Tittle -->
-                            <div class="small-section-tittle">
-                                <h4>Company Information</h4>
-                            </div>
-                            <span>Colorlib</span>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                            <ul>
-                                <li>Name: <span>Colorlib </span></li>
-                                <li>Web : <span> colorlib.com</span></li>
-                                <li>Email: <span>carrier.colorlib@gmail.com</span></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -202,7 +189,7 @@ $jobapply = date( 'd/m/Y', strtotime($row['job_apply_date']));
                         <div class="col-xl-7 col-lg-9 col-md-8">
                             <div class="wantToWork-caption wantToWork-caption2">
                                 <h2>Start finding your dream job</h2>
-                                <p>The automated process starts as soon as your clothes go into the machine. The outcome is gleaming clothes placeholder text commonly used.</p>
+                                <p>The automated process starts as soon as you log in!</p>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-3 ">
