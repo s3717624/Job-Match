@@ -20,13 +20,13 @@ class Account
 	/* Class properties (variables) */
 	
 	/* The ID of the logged in account (or NULL if there is no logged in account) */
-	private $id;
+	public $id;
 	
 	/* The name of the logged in account (or NULL if there is no logged in account) */
-	private $name;
+	public $name;
 	
 	/* TRUE if the user is authenticated, FALSE otherwise */
-	private $authenticated;
+	public $authenticated;
 	
 	
 	/* Public class methods (functions) */
