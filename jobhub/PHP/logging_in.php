@@ -17,6 +17,7 @@ $login = false;
 echo "Your username is: ".$_POST["username"]."<br>";
 echo "Your password is: ".$_POST["password"]."<br>";
 
+//Check if inputs are empty
 if($_POST["username"] == "" && $_POST["password"] == "")
 {
     $_SESSION["no_username"] = true;
@@ -34,6 +35,7 @@ if($_POST["username"] == "" && $_POST["password"] == "")
 
 $_SESSION["password"] = $_POST["password"];
 
+//Checks if session is set
 if (!isset($_POST["username"]) || !isset($_POST["password"]))
 {
     if(isset($_SESSION['currentpage']))
@@ -81,6 +83,7 @@ $_SESSION["user_id"] = $account->getId();
 
 $usrtype = $account->typeCheck($_SESSION["user_id"]);
 
+//On successful login redirect and echo name and ID in case of error
 if ($login)
 {
     echo 'Authentication successful (session login).<br>';

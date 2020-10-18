@@ -59,6 +59,9 @@ if(mysqli_query($conn, $sql)){
 //        }
 //
 //        while($row = $res->fetch(PDO::FETCH_ASSOC))
+
+
+        //Metaphones all the rows retrieved
         while($row = mysqli_fetch_assoc($res1))
         {
             $sound = " ";

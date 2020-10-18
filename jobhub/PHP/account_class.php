@@ -840,6 +840,7 @@ class Account
         return $phone;
 	}
 	
+	//Retrieve skills from ID
 	public function getSkillsFromId(int $id): ?string
     {
         global $pdo;
@@ -874,6 +875,7 @@ class Account
         return $skills;
 	}
 	
+	//Retrieve education from ID
 	public function getEducationFromId(int $id): ?string
     {
         global $pdo;
@@ -908,6 +910,7 @@ class Account
         return $education;
 	}
 	
+	//Retrieve website from ID
 	public function getWebsiteFromId(int $id): ?string
     {
         global $pdo;
@@ -942,6 +945,7 @@ class Account
         return $education;
     }
 
+	//Takes the account skills and education and metaphones them into index column
 	public function indexAttributes()
 	{
 		$servername = "localhost";

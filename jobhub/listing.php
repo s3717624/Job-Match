@@ -113,6 +113,7 @@ if(isset($_GET['search_query']))
 
 <!doctype html>
 <html class="no-js" lang="zxx">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -138,9 +139,10 @@ if(isset($_GET['search_query']))
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <!-- ? Preloader Start -->
-<!--    <div id="preloader-active">
+    <!--    <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
@@ -169,9 +171,10 @@ if(isset($_GET['search_query']))
                                     <input type="text" name="search_query" placeholder="What are you finding?">
                                 </div>
                                 <div class="search-form">
-                                    <a href="#" onclick="document.getElementById('jobsearch').submit()"><i class="ti-search"></i> Search</a>
-                                </div>	
-                            </form>	
+                                    <a href="#" onclick="document.getElementById('jobsearch').submit()"><i
+                                            class="ti-search"></i> Search</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -188,11 +191,13 @@ if(isset($_GET['search_query']))
                                 <div class="small-section-tittle2 mb-45">
                                     <h4>Advanced Filter</h4>
                                     <form action="listing.php" name="alljobsform" method="get" style="margin:10px 0px;">
-                                        <input class ="page-link" type="submit" id ="alljobsbtn" name="alljobsbtn" value="Show all jobs">
+                                        <input class="page-link" type="submit" id="alljobsbtn" name="alljobsbtn"
+                                            value="Show all jobs">
                                     </form>
 
-                                    <form action="listing.php" name="matchform"method="get" style="margin:10px 0px;">
-                                        <input class ="page-link" type="submit" id ="matchbtn" name="matchbtn" value="Match jobs">
+                                    <form action="listing.php" name="matchform" method="get" style="margin:10px 0px;">
+                                        <input class="page-link" type="submit" id="matchbtn" name="matchbtn"
+                                            value="Match jobs">
                                     </form>
                                 </div>
                             </div>
@@ -200,50 +205,50 @@ if(isset($_GET['search_query']))
                         <!-- Job Category Listing start -->
                         <div class="category-listing mb-50">
                             <form action="./listing.php" method="GET" id="advancedfilter">
-                            <!-- single one -->
-                            <div class="single-listing">
-                                <!-- Select City items start -->
-<!--                                <div class="select-job-items2">-->
-<!--                                    <select name="select2">-->
-<!--                                        <option value="" disabled selected>City</option>-->
-<!--                                        <option value="">Dhaka</option>-->
-<!--                                        <option value="">india</option>-->
-<!--                                        <option value="">UK</option>-->
-<!--                                        <option value="">US</option>-->
-<!--                                        <option value="">Pakistan</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-                                <!--  Select City items End-->
-                                <!-- Select State items start -->
-<!--                                <div class="select-job-items2">-->
-<!--                                    <select name="select2">-->
-<!--                                        <option value="" disabled selected>State</option>-->
-<!--                                        <option value="">Dhaka</option>-->
-<!--                                        <option value="">Mirpur</option>-->
-<!--                                        <option value="">Danmondi</option>-->
-<!--                                        <option value="">Rampura</option>-->
-<!--                                        <option value="">Htizill</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-                                <!--  Select State items End-->
-                                <!-- Select km items start -->
-<!--                                <div class="select-job-items2">-->
-<!--                                    <select name="select2">-->
-<!--                                        <option value="">Near 1 km</option>-->
-<!--                                        <option value="">2 km</option>-->
-<!--                                        <option value="">3 km</option>-->
-<!--                                        <option value="">4 km</option>-->
-<!--                                        <option value="">5 km</option>-->
-<!--                                        <option value="">6 km</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-                                <!--  Select km items End-->
-                                <!-- select-Categories start -->
-                                <div class="select-Categories pt-80 pb-30">
-                                    <div class="small-section-tittle2 mb-20">
-                                        <h4>Price range</h4>
-                                    </div>
-                                    <?php
+                                <!-- single one -->
+                                <div class="single-listing">
+                                    <!-- Select City items start -->
+                                    <!--                                <div class="select-job-items2">-->
+                                    <!--                                    <select name="select2">-->
+                                    <!--                                        <option value="" disabled selected>City</option>-->
+                                    <!--                                        <option value="">Dhaka</option>-->
+                                    <!--                                        <option value="">india</option>-->
+                                    <!--                                        <option value="">UK</option>-->
+                                    <!--                                        <option value="">US</option>-->
+                                    <!--                                        <option value="">Pakistan</option>-->
+                                    <!--                                    </select>-->
+                                    <!--                                </div>-->
+                                    <!--  Select City items End-->
+                                    <!-- Select State items start -->
+                                    <!--                                <div class="select-job-items2">-->
+                                    <!--                                    <select name="select2">-->
+                                    <!--                                        <option value="" disabled selected>State</option>-->
+                                    <!--                                        <option value="">Dhaka</option>-->
+                                    <!--                                        <option value="">Mirpur</option>-->
+                                    <!--                                        <option value="">Danmondi</option>-->
+                                    <!--                                        <option value="">Rampura</option>-->
+                                    <!--                                        <option value="">Htizill</option>-->
+                                    <!--                                    </select>-->
+                                    <!--                                </div>-->
+                                    <!--  Select State items End-->
+                                    <!-- Select km items start -->
+                                    <!--                                <div class="select-job-items2">-->
+                                    <!--                                    <select name="select2">-->
+                                    <!--                                        <option value="">Near 1 km</option>-->
+                                    <!--                                        <option value="">2 km</option>-->
+                                    <!--                                        <option value="">3 km</option>-->
+                                    <!--                                        <option value="">4 km</option>-->
+                                    <!--                                        <option value="">5 km</option>-->
+                                    <!--                                        <option value="">6 km</option>-->
+                                    <!--                                    </select>-->
+                                    <!--                                </div>-->
+                                    <!--  Select km items End-->
+                                    <!-- select-Categories start -->
+                                    <div class="select-Categories pt-80 pb-30">
+                                        <div class="small-section-tittle2 mb-20">
+                                            <h4>Price range</h4>
+                                        </div>
+                                        <?php
                                         if(isset($_GET['pricerange']))
                                         {
                                             if($_GET['pricerange'] == '50korless')
@@ -289,15 +294,15 @@ if(isset($_GET['search_query']))
 //                                        echo "Test: ".$lowerprice." ".$upperprice;
                                     ?>
 
-                                    <script language="JavaScript">
+                                        <script language="JavaScript">
 
-                                    </script>
-                                </div>
-                                <!-- select-Categories End -->
-                                <!-- select-Categories start -->
+                                        </script>
+                                    </div>
+                                    <!-- select-Categories End -->
+                                    <!-- select-Categories start -->
 
-                                <h4>Job nature</h4>
-                                <?php
+                                    <h4>Job nature</h4>
+                                    <?php
                                 if(isset($_GET['jobnature']))
                                 {
                                     if($_GET['jobnature'] == 'fulltime')
@@ -329,28 +334,28 @@ if(isset($_GET['search_query']))
 //                                echo  "Test: ".$jobnature;
                                 ?><br>
 
-                                <?php
+                                    <?php
                                 if(isset($searchfield))
                                 {
                                     echo "<input type=\"hidden\" id=\"searchfield\" name=\"searchfield\" value=".$searchfield.">";
                                 }
                                 ?>
-                                <input type="submit" name="gobtn" id="gobtn" value="Go">
-                                <!-- select-Categories End -->
+                                    <input type="submit" name="gobtn" id="gobtn" value="Go">
+                                    <!-- select-Categories End -->
                             </form>
-                            </div>
                         </div>
-                        <!-- Job Category Listing End -->
                     </div>
-                    <!--?  Right content -->
-                    <div class="col-xl-8 col-lg-8 col-md-6">
-                        <div class="row">
-                            <div class="col-lg-12">
-                            
+                    <!-- Job Category Listing End -->
+                </div>
+                <!--?  Right content -->
+                <div class="col-xl-8 col-lg-8 col-md-6">
+                    <div class="row">
+                        <div class="col-lg-12">
 
-                            
-                                <div class="count mb-35">
-                                    <span><?php
+
+
+                            <div class="count mb-35">
+                                <span><?php
                                         if(isset($_GET['search_query'])){
                                             $results = $Job->searchJob($_GET['search_query']);
 
@@ -402,10 +407,14 @@ if(isset($_GET['search_query']))
                                             echo $count;
                                             echo " Listing(s) are available";
                                         } 
+
+                                        //Checks if all jobs button has been pressed
                                         elseif(isset($_GET['alljobsbtn'])){
                                             echo $def_cnt;
                                             echo " Listing(s) are available";
                                         }
+
+                                        //Checks if the filter button has been pressed
                                         elseif(isset($_GET['gobtn'])) 
                                         {
                                             if(isset($searchfield))
@@ -425,12 +434,16 @@ if(isset($_GET['search_query']))
                                                     if(isset($_GET['search_query']))
                                                     {
                                                         $similarityCount = 0;
+                                                        //Tokenize whitespaces
                                                         $setA = $Tokenizer->tokenize($_GET['search_query']);
                                                         $setB = array($Tokenizer->tokenize($row['job_name']), $Tokenizer->tokenize($row['job_short_desc']), $Tokenizer->tokenize($row['job_desc']));
 
                                                         for($x = 0; $x <= 2; $x++)
                                                         {
 //                                                        echo "test ".$_GET['search_query']." ".$row['job_name']."<br>";
+                                                            
+                                                            //Checks for the similarity with cosine similarity
+                                                            
                                                             if($x == 2 && ($row['job_desc'] == ""))
                                                                 $similarityResult = 1;
                                                             else if(isset($_GET['search_query']))
@@ -471,13 +484,13 @@ if(isset($_GET['search_query']))
                                             echo " Match(es) founds";
                                         }
                                         ?> </span>
-                                </div>
                             </div>
                         </div>
-                        <!--? Popular Directory Start -->
-                        <div class="popular-directorya-area fix">
-                            <div class="row">
-                                <?php
+                    </div>
+                    <!--? Popular Directory Start -->
+                    <div class="popular-directorya-area fix">
+                        <div class="row">
+                            <?php
 
                                 $ret = $Job->matchJobs($_SESSION['user_id']);
                                 $cnt=1;
@@ -510,6 +523,8 @@ if(isset($_GET['search_query']))
                                             for($x = 0; $x <= 2; $x++)
                                             {
 //                                                        echo "test ".$_GET['search_query']." ".$row['job_name']."<br>";
+
+                                                //Checks similarity with cosine similarity
                                                 if($x == 2 && ($row['job_desc'] == ""))
                                                     $similarityResult = 1;
                                                 else if(isset($_GET['search_query']))
@@ -524,7 +539,7 @@ if(isset($_GET['search_query']))
                                                 }
 //                                                        echo $similarityCount."<br>";
                                             }
-
+                                            
                                             $similarityCount = floatval($similarityCount);
 
                                             if(!($upperprice > $jobsalary2 && $jobsalary2 > $lowerprice) || (($similarityCount/3.0) < 0.5))
@@ -537,118 +552,129 @@ if(isset($_GET['search_query']))
                                                 {
                                                     continue;
                                                 }
-                                            }
+                                            }//Prints the results in order
                                             ?>
-                                            <div class="col-lg-6">
-                                                <!-- Single -->
-                                                <div class="properties properties2 mb-30">
-                                                    <div class="properties__card">
-                                                        <div class="properties__img overlay1">
-                                                            <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
-                                                            <div class="img-text">
+                            <div class="col-lg-6">
+                                <!-- Single -->
+                                <div class="properties properties2 mb-30">
+                                    <div class="properties__card">
+                                        <div class="properties__img overlay1">
+                                            <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
+                                            <div class="img-text">
 
-                                                            </div>
-                                                            <div class="icon">
-                                                                <img src="assets/img/gallery/categori_icon1.png" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="properties__caption">
-                                                            <h3><a href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a></h3>
-                                                            <p><?php echo $row['job_short_desc'];?></p>
-                                                        </div>
-                                                        <div class="properties__footer d-flex justify-content-between align-items-center">
-                                                            <div class="restaurant-name">
-                                                                <img src="assets/img/gallery/restaurant-icon.png" alt="">
-                                                                <h3>$<?php echo $row['job_salary'];?></h3>
-                                                            </div>
-                                                            <!-- <div class="heart">
+                                            </div>
+                                            <div class="icon">
+                                                <img src="assets/img/gallery/categori_icon1.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="properties__caption">
+                                            <h3><a
+                                                    href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a>
+                                            </h3>
+                                            <p><?php echo $row['job_short_desc'];?></p>
+                                        </div>
+                                        <div
+                                            class="properties__footer d-flex justify-content-between align-items-center">
+                                            <div class="restaurant-name">
+                                                <img src="assets/img/gallery/restaurant-icon.png" alt="">
+                                                <h3>$<?php echo $row['job_salary'];?></h3>
+                                            </div>
+                                            <!-- <div class="heart">
                                                                 <img src="assets/img/gallery/heart1.png" alt="">
                                                             </div> -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
                                             $count++;
                                         }
                                     }
                                 }
 
+                                //Checks if all jobs button pressed
                                 elseif(isset($_GET['alljobsbtn'])) {
                                     while($row = mysqli_fetch_assoc($alljobs))
                                 {
                                 ?>
 
-                                <div class="col-lg-6">
-                                    <!-- Single -->
-                                    <div class="properties properties2 mb-30">
-                                        <div class="properties__card">
-                                            <div class="properties__img overlay1">
-                                                <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
-                                                <div class="img-text">
-                                                    
-                                                </div>
-                                                <div class="icon">
-                                                    <img src="assets/img/gallery/categori_icon1.png" alt=""> 
-                                                </div>
+                            <div class="col-lg-6">
+                                <!-- Single -->
+                                <div class="properties properties2 mb-30">
+                                    <div class="properties__card">
+                                        <div class="properties__img overlay1">
+                                            <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
+                                            <div class="img-text">
+
                                             </div>
-                                            <div class="properties__caption">
-                                                <h3><a href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a></h3>
-                                                <p><?php echo $row['job_short_desc'];?></p>
+                                            <div class="icon">
+                                                <img src="assets/img/gallery/categori_icon1.png" alt="">
                                             </div>
-                                            <div class="properties__footer d-flex justify-content-between align-items-center">
-                                                <div class="restaurant-name">
-                                                    <img src="assets/img/gallery/restaurant-icon.png" alt="">
-                                                    <h3>$<?php echo $row['job_salary'];?></h3>
-                                                </div>
-                                                <!-- <div class="heart">
+                                        </div>
+                                        <div class="properties__caption">
+                                            <h3><a
+                                                    href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a>
+                                            </h3>
+                                            <p><?php echo $row['job_short_desc'];?></p>
+                                        </div>
+                                        <div
+                                            class="properties__footer d-flex justify-content-between align-items-center">
+                                            <div class="restaurant-name">
+                                                <img src="assets/img/gallery/restaurant-icon.png" alt="">
+                                                <h3>$<?php echo $row['job_salary'];?></h3>
+                                            </div>
+                                            <!-- <div class="heart">
                                                     <img src="assets/img/gallery/heart1.png" alt="">
                                                 </div> -->
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <?php $cnt=$cnt+1; 
+                            </div>
+
+                            <?php $cnt=$cnt+1; 
                                 }
                                 }
 
+                                //Checks if the match button is pressed
                                 elseif(isset($_GET['matchbtn'])) {
                                     while($row = mysqli_fetch_assoc($ret))
                                 {
                                 ?>
 
-                                <div class="col-lg-6">
-                                    <!-- Single -->
-                                    <div class="properties properties2 mb-30">
-                                        <div class="properties__card">
-                                            <div class="properties__img overlay1">
-                                                <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
-                                                <div class="img-text">
-                                                    
-                                                </div>
-                                                <div class="icon">
-                                                    <img src="assets/img/gallery/categori_icon1.png" alt=""> 
-                                                </div>
+                            <div class="col-lg-6">
+                                <!-- Single -->
+                                <div class="properties properties2 mb-30">
+                                    <div class="properties__card">
+                                        <div class="properties__img overlay1">
+                                            <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
+                                            <div class="img-text">
+
                                             </div>
-                                            <div class="properties__caption">
-                                                <h3><a href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a></h3>
-                                                <p><?php echo $row['job_short_desc'];?></p>
+                                            <div class="icon">
+                                                <img src="assets/img/gallery/categori_icon1.png" alt="">
                                             </div>
-                                            <div class="properties__footer d-flex justify-content-between align-items-center">
-                                                <div class="restaurant-name">
-                                                    <img src="assets/img/gallery/restaurant-icon.png" alt="">
-                                                    <h3>$<?php echo $row['job_salary'];?></h3>
-                                                </div>
-                                                <!-- <div class="heart">
+                                        </div>
+                                        <div class="properties__caption">
+                                            <h3><a
+                                                    href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a>
+                                            </h3>
+                                            <p><?php echo $row['job_short_desc'];?></p>
+                                        </div>
+                                        <div
+                                            class="properties__footer d-flex justify-content-between align-items-center">
+                                            <div class="restaurant-name">
+                                                <img src="assets/img/gallery/restaurant-icon.png" alt="">
+                                                <h3>$<?php echo $row['job_salary'];?></h3>
+                                            </div>
+                                            <!-- <div class="heart">
                                                     <img src="assets/img/gallery/heart1.png" alt="">
                                                 </div> -->
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <?php $cnt=$cnt+1; 
+                            </div>
+
+                            <?php $cnt=$cnt+1; 
                                 }
                                 }
                                 /* show matched code */
@@ -671,39 +697,42 @@ if(isset($_GET['search_query']))
                                     }
                                 ?>
 
-                                <div class="col-lg-6">
-                                    <!-- Single -->
-                                    <div class="properties properties2 mb-30">
-                                        <div class="properties__card">
-                                            <div class="properties__img overlay1">
-                                                <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
-                                                <div class="img-text">
-                                                    
-                                                </div>
-                                                <div class="icon">
-                                                    <img src="assets/img/gallery/categori_icon1.png" alt=""> 
-                                                </div>
+                            <div class="col-lg-6">
+                                <!-- Single -->
+                                <div class="properties properties2 mb-30">
+                                    <div class="properties__card">
+                                        <div class="properties__img overlay1">
+                                            <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
+                                            <div class="img-text">
+
                                             </div>
-                                            <div class="properties__caption">
-                                                <h3><a href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a></h3>
-                                                <p><?php echo $row['job_short_desc'];?></p>
+                                            <div class="icon">
+                                                <img src="assets/img/gallery/categori_icon1.png" alt="">
                                             </div>
-                                            <div class="properties__footer d-flex justify-content-between align-items-center">
-                                                <div class="restaurant-name">
-                                                    <img src="assets/img/gallery/restaurant-icon.png" alt="">
-                                                    <h3>$<?php echo $row['job_salary'];?></h3>
-                                                </div>
-                                                <!-- <div class="heart">
+                                        </div>
+                                        <div class="properties__caption">
+                                            <h3><a
+                                                    href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a>
+                                            </h3>
+                                            <p><?php echo $row['job_short_desc'];?></p>
+                                        </div>
+                                        <div
+                                            class="properties__footer d-flex justify-content-between align-items-center">
+                                            <div class="restaurant-name">
+                                                <img src="assets/img/gallery/restaurant-icon.png" alt="">
+                                                <h3>$<?php echo $row['job_salary'];?></h3>
+                                            </div>
+                                            <!-- <div class="heart">
                                                     <img src="assets/img/gallery/heart1.png" alt="">
                                                 </div> -->
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <?php $cnt=$cnt+1; }}
+                            </div>
 
-                                else
+                            <?php $cnt=$cnt+1; }}
+
+                                else //Default printing the matched values
                                 while($row = mysqli_fetch_assoc($ret))
                                 {
                                     $jobsalary1 = $row['job_salary'];
@@ -722,53 +751,56 @@ if(isset($_GET['search_query']))
                                     }
                                 ?>
 
-                                <div class="col-lg-6">
-                                    <!-- Single -->
-                                    <div class="properties properties2 mb-30">
-                                        <div class="properties__card">
-                                            <div class="properties__img overlay1">
-                                                <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
-                                                <div class="img-text">
-                                                    
-                                                </div>
-                                                <div class="icon">
-                                                    <img src="assets/img/gallery/categori_icon1.png" alt=""> 
-                                                </div>
+                            <div class="col-lg-6">
+                                <!-- Single -->
+                                <div class="properties properties2 mb-30">
+                                    <div class="properties__card">
+                                        <div class="properties__img overlay1">
+                                            <a href="#"><img src="assets/img/gallery/properties1.png" alt=""></a>
+                                            <div class="img-text">
+
                                             </div>
-                                            <div class="properties__caption">
-                                                <h3><a href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a></h3>
-                                                <p><?php echo $row['job_short_desc'];?></p>
+                                            <div class="icon">
+                                                <img src="assets/img/gallery/categori_icon1.png" alt="">
                                             </div>
-                                            <div class="properties__footer d-flex justify-content-between align-items-center">
-                                                <div class="restaurant-name">
-                                                    <img src="assets/img/gallery/restaurant-icon.png" alt="">
-                                                    <h3>$<?php echo $row['job_salary'];?></h3>
-                                                </div>
-                                                <!-- <div class="heart">
+                                        </div>
+                                        <div class="properties__caption">
+                                            <h3><a
+                                                    href="job_details.php?jobid=<?php echo $row['job_id'];?>"><?php echo $row['job_name'];?></a>
+                                            </h3>
+                                            <p><?php echo $row['job_short_desc'];?></p>
+                                        </div>
+                                        <div
+                                            class="properties__footer d-flex justify-content-between align-items-center">
+                                            <div class="restaurant-name">
+                                                <img src="assets/img/gallery/restaurant-icon.png" alt="">
+                                                <h3>$<?php echo $row['job_salary'];?></h3>
+                                            </div>
+                                            <!-- <div class="heart">
                                                     <img src="assets/img/gallery/heart1.png" alt="">
                                                 </div> -->
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <?php $cnt=$cnt+1; }?>
                             </div>
+
+                            <?php $cnt=$cnt+1; }?>
                         </div>
-                        <!--? Popular Directory End -->
-                        <!--Pagination Start  -->
-                        <div class="pagination-area text-center">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                    </div>
+                    </div>
+                    <!--? Popular Directory End -->
+                    <!--Pagination Start  -->
+                    <div class="pagination-area text-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12">
                                 </div>
                             </div>
                         </div>
-                        <!--Pagination End  -->
                     </div>
+                    <!--Pagination End  -->
                 </div>
             </div>
+        </div>
         </div>
         <!-- listing-area Area End -->
         <!--? Want To work 02-->
@@ -779,8 +811,9 @@ if(isset($_GET['search_query']))
                         <div class="col-xl-8 col-lg-8 col-md-7">
                             <div class="wantToWork-caption wantToWork-caption2">
                                 <img src="assets/img/logo/logo2_footer.png" alt="" class="mb-20">
-                                <p>Users and submit their own items. You can create different packages and by connecting with your
-                                PayPal or Stripe account charge users for registration to your directory portal.</p>
+                                <p>Users and submit their own items. You can create different packages and by connecting
+                                    with your
+                                    PayPal or Stripe account charge users for registration to your directory portal.</p>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-5">
@@ -807,7 +840,7 @@ if(isset($_GET['search_query']))
                                     <nav>
                                         <ul>
                                             <li><a href="index.php">Home</a></li>
-                                            <li><a href="explore.html">Explore</a></li> 
+                                            <li><a href="explore.html">Explore</a></li>
                                             <li><a href="pages.html">Pages</a></li>
                                             <li><a href="blog.html">Blog</a></li>
                                             <li><a href="contact.html">Contact</a></li>
@@ -816,7 +849,7 @@ if(isset($_GET['search_query']))
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -832,20 +865,26 @@ if(isset($_GET['search_query']))
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="col-xl-10 col-lg-9 ">
                                 <div class="footer-copy-right">
-                                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </footer>
+                                    <p>
+                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                        Copyright &copy;<script>
+                                            document.write(new Date().getFullYear());
+                                        </script> All rights reserved | This template is made with <i
+                                            class="fa fa-heart" aria-hidden="true"></i> by <a
+                                            href="https://colorlib.com" target="_blank">Colorlib</a>
+                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-      <!-- Scroll Up -->
-      <div id="back-top" >
+    <!-- Scroll Up -->
+    <div id="back-top">
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
     <!-- JS here -->
@@ -873,7 +912,7 @@ if(isset($_GET['search_query']))
     <script src="./assets/js/jquery.sticky.js"></script>
     <!-- Progress -->
     <script src="./assets/js/jquery.barfiller.js"></script>
-    
+
     <!-- counter , waypoint,Hover Direction -->
     <script src="./assets/js/jquery.counterup.min.js"></script>
     <script src="./assets/js/waypoints.min.js"></script>
@@ -886,10 +925,11 @@ if(isset($_GET['search_query']))
     <script src="./assets/js/jquery.validate.min.js"></script>
     <script src="./assets/js/mail-script.js"></script>
     <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-    
-    <!-- Jquery Plugins, main Jquery -->	
+
+    <!-- Jquery Plugins, main Jquery -->
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
-    
+
 </body>
+
 </html>

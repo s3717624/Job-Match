@@ -207,6 +207,7 @@ $_SESSION['currentpage'] = "compose.php";
 
 <?php
 
+//Send message if isset
 if (isset($_POST['submit'])) {
     
     $Message->send_message($replyto, $_POST['subject'], $_POST['message']);

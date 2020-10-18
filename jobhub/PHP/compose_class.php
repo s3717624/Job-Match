@@ -9,7 +9,8 @@ define("TBL_MESSAGES", "inbox");
 
 
 class Message{
-    
+	
+	//Sanitizes the strings
     private function _validate_message($message){
 		$return = trim($message); 
 		$return = filter_var($message, FILTER_SANITIZE_STRING); 
@@ -17,6 +18,7 @@ class Message{
 		return $return;
 	} 
 	
+	//Insert message from subject to receiver
 	public function send_message($to, $subject, $message){
         
         $conn = mysqli_connect(server, user, password, database);
@@ -37,7 +39,7 @@ class Message{
 	
 
 	
-
+	//Retrieve message into view
 	public function get_message($message_id){
         $conn = mysqli_connect(server, user, password, database);
 		$role = "sender_delete";
@@ -52,6 +54,7 @@ class Message{
 		return $query;
 	} 
 
+	//Removes message entry
 	public function delete_message($message_id){
         $conn = mysqli_connect(server, user, password, database);
 		$role = "sender_delete";

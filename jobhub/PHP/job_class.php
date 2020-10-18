@@ -38,6 +38,7 @@ class Job
     {
         global $pdo;
 
+        
         $query = 'INSERT INTO login_system.jobs (job_name, 
                                                 job_short_desc, 
                                                 job_desc,
@@ -66,6 +67,8 @@ class Job
             ':nature' => $jobnature,
             ':salary' => $jobsalary);
 
+
+        //Execute query try catch
         try
         {
             $res = $pdo->prepare($query);
@@ -186,6 +189,8 @@ class Job
 //        }
 //
 //        while($row = $res->fetch(PDO::FETCH_ASSOC))
+
+        //Metaphone rows
         while($row = mysqli_fetch_assoc($res1))
         {
             $sound = " ";
@@ -288,6 +293,7 @@ class Job
         return $valid;
     }
 
+
     function matchJobs($id)
     {
         $servername = "localhost";
@@ -297,6 +303,7 @@ class Job
 
         $conn = mysqli_connect($servername, $username, $password, $dbname);
 
+        //Matches the current users metaphoned attributes with jobs attributes
         $sql1 = mysqli_query($conn, "SELECT indexing from accounts where account_id='$id' ");
         $row = mysqli_fetch_assoc($sql1);
         $match = $row["indexing"];
@@ -304,6 +311,7 @@ class Job
         $words = preg_split('/\s+/', $match);
         $tests = array();
 
+        //The matching
         foreach ($words as $word) {
             $tests[] = "indexing LIKE '%$word%' ";
         }
@@ -316,7 +324,7 @@ class Job
         return $sql2;
     }
     
-    
+    //Filters the earlier given search keys
     function filterSearchKeys($query)
     {
         $query = trim(preg_replace("/(\s+)+/", " ", $query));

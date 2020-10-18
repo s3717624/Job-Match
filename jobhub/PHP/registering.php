@@ -13,6 +13,8 @@ if(!(isset($_POST)))
         header("Location: ../");
 }
 
+
+//Empty checking
 if ($_POST["username"] == "")
 {
     $_SESSION["username_error2"] = TRUE;

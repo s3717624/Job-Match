@@ -19,6 +19,7 @@ $_SESSION['currentpage'] = "inbox.php";
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -46,28 +47,30 @@ $_SESSION['currentpage'] = "inbox.php";
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-<!-- ? Preloader Start -->
+    <!-- ? Preloader Start -->
 
-<!-- Preloader Start -->
-<!-- Header Start -->
-<?php include_once("header.php") ?>
-<!-- header end -->
-<!-- Hero Area Start-->
-<div class="slider-area">
-    <div class="single-slider slider-height d-flex align-items-center">
+    <!-- Preloader Start -->
+    <!-- Header Start -->
+    <?php include_once("header.php") ?>
+    <!-- header end -->
+    <!-- Hero Area Start-->
+    <div class="slider-area">
+        <div class="single-slider slider-height d-flex align-items-center">
 
 
-    <div class="container">
-<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
- <div class="mail-box">
-                  
-                      
-                      
-                     
-                      
+            <div class="container">
+                <link rel='stylesheet prefetch'
+                    href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+                <div class="mail-box">
 
- <?php
+
+
+
+
+
+                    <?php
                              
                              $messageid = $_REQUEST['messageid'];
                              $query = mysqli_query($conn, "SELECT * from inbox where id = '$messageid'");
@@ -81,116 +84,119 @@ $_SESSION['currentpage'] = "inbox.php";
 
                              ?>
 
-                  
-                  <aside class="lg-side">
-                      <div class="inbox-head">
-                      <h1 >
-                           Message
-                          </h1>
-                          
-                      </div>
-                      
+
+                    <aside class="lg-side">
+                        <div class="inbox-head">
+                            <h1>
+                                Message
+                            </h1>
+
+                        </div>
+
                         <div class="inbox-body">
                             <div class="mail-option">
-                            <h1><?php echo $subject; ?></h1> 
-                            
-                            <br/>
+                                <h1><?php echo $subject; ?></h1>
 
-                            From: <?php echo $user_from; ?> < <?php echo $user_from_acc;?> >
-                             
-                            <br/>
+                                <br />
+
+                                From: <?php echo $user_from; ?> < <?php echo $user_from_acc;?>>
+
+                                    <br />
                             </div>
-                            </div>
+                        </div>
                         <div class="inbox-body">
-                        <div class="mail-option">
-                            <br/>
+                            <div class="mail-option">
+                                <br />
 
-                            <h2><?php echo $message; ?></h2>
-                            
-                         </div>
-                      </div>
-                          
-                      
-                      <button class="btn btn-primary btn-sm pl-3 pr-3" style="font-size:20px; color: black; margin:10px; padding:15px 25px;" onclick = " window.location = 'compose.php?replyto=<?php echo $row['user_from'];?> ' ">Reply <i class="fa fa-mail-reply"></i></button>
-                  </aside>
-              </div>
-</div>
+                                <h2><?php echo $message; ?></h2>
 
-
-       
+                            </div>
                         </div>
-        </div>
-    </div>
-</div>
+
+
+                        <button class="btn btn-primary btn-sm pl-3 pr-3"
+                            style="font-size:20px; color: black; margin:10px; padding:15px 25px;"
+                            onclick=" window.location = 'compose.php?replyto=<?php echo $row['user_from'];?> ' ">Reply
+                            <i class="fa fa-mail-reply"></i></button>
+                    </aside>
+                </div>
             </div>
+
+
+
         </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 
     </div>
-</div>
-        <!-- footer-bottom area -->
-        <div class="footer-bottom-area">
-            <div class="container">
-                <div class="footer-border">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-xl-12 ">
-                            
-                        </div>
+    </div>
+    <!-- footer-bottom area -->
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="footer-border">
+                <div class="row d-flex align-items-center">
+                    <div class="col-xl-12 ">
+
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Footer End-->
     </div>
-</footer>
+    <!-- Footer End-->
+    </div>
+    </footer>
 
-<!-- Scroll Up -->
-<div id="back-top" >
-    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-</div>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
 
-<!-- JS here -->
+    <!-- JS here -->
 
-<script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-<!-- Jquery, Popper, Bootstrap -->
-<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="./assets/js/popper.min.js"></script>
-<script src="./assets/js/bootstrap.min.js"></script>
-<!-- Jquery Mobile Menu -->
-<script src="./assets/js/jquery.slicknav.min.js"></script>
+    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./assets/js/jquery.slicknav.min.js"></script>
 
-<!-- Jquery Slick , Owl-Carousel Plugins -->
-<script src="./assets/js/owl.carousel.min.js"></script>
-<script src="./assets/js/slick.min.js"></script>
-<!-- One Page, Animated-HeadLin -->
-<script src="./assets/js/wow.min.js"></script>
-<script src="./assets/js/animated.headline.js"></script>
-<script src="./assets/js/jquery.magnific-popup.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <script src="./assets/js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./assets/js/wow.min.js"></script>
+    <script src="./assets/js/animated.headline.js"></script>
+    <script src="./assets/js/jquery.magnific-popup.js"></script>
 
-<!-- Date Picker -->
-<script src="./assets/js/gijgo.min.js"></script>
-<!-- Nice-select, sticky -->
-<script src="./assets/js/jquery.nice-select.min.js"></script>
-<script src="./assets/js/jquery.sticky.js"></script>
-<!-- Progress -->
-<script src="./assets/js/jquery.barfiller.js"></script>
+    <!-- Date Picker -->
+    <script src="./assets/js/gijgo.min.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="./assets/js/jquery.nice-select.min.js"></script>
+    <script src="./assets/js/jquery.sticky.js"></script>
+    <!-- Progress -->
+    <script src="./assets/js/jquery.barfiller.js"></script>
 
-<!-- counter , waypoint,Hover Direction -->
-<script src="./assets/js/jquery.counterup.min.js"></script>
-<script src="./assets/js/waypoints.min.js"></script>
-<script src="./assets/js/jquery.countdown.min.js"></script>
-<script src="./assets/js/hover-direction-snake.min.js"></script>
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="./assets/js/jquery.counterup.min.js"></script>
+    <script src="./assets/js/waypoints.min.js"></script>
+    <script src="./assets/js/jquery.countdown.min.js"></script>
+    <script src="./assets/js/hover-direction-snake.min.js"></script>
 
-<!-- contact js -->
-<script src="./assets/js/contact.js"></script>
-<script src="./assets/js/jquery.form.js"></script>
-<script src="./assets/js/jquery.validate.min.js"></script>
-<script src="./assets/js/mail-script.js"></script>
-<script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+    <!-- contact js -->
+    <script src="./assets/js/contact.js"></script>
+    <script src="./assets/js/jquery.form.js"></script>
+    <script src="./assets/js/jquery.validate.min.js"></script>
+    <script src="./assets/js/mail-script.js"></script>
+    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
 
-<!-- Jquery Plugins, main Jquery -->
-<script src="./assets/js/plugins.js"></script>
-<script src="./assets/js/main.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/main.js"></script>
 
 </body>
-</html>
 
+</html>
