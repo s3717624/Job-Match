@@ -99,7 +99,7 @@ $_SESSION['currentpage'] = "compose.php";
                                                 ?> <select name='applicant'>; <?php
                                                 // output data of each row
                                                 while($row = $query->fetch_assoc()) {
-                                                    $name = $Account->getFullNameFromId($row['account_id']);
+                                                  $name = $Account->getFullNameFromId($row['account_id']);
                                                     
                                                   echo "<option value='" . $name . "'> ". $name ." </option>";
                                                 }

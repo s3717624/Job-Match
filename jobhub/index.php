@@ -58,46 +58,14 @@ $Account = new Account();
                             <!-- Hero Caption -->
                             <div class="hero__caption">
                                 <h1>Find your dream job.</h1>
-                                <p>The automated process starts as soon as your clothes go into the machine. The outcome is gleaming clothes. Placeholder text commonly used.</p>
+                                <p>Your job finding experience just got a lot easier. Sign up for Job Match today to use our automated matching algorithm and find your ideal job!</p>
                             </div>
                         </div>
-                        <div class="col-xl-11 col-lg-12">
-                            <!--Hero form -->
-                            <form id="jobsearch" action="listing.php" class="search-box" method="GET">
-                                <div class="input-form">
-                                    <input type="text" name="search_query" placeholder="Job title or keywords">
-                                    <!-- icon -->
-                                    <div class="icon">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </div>
-                                </div>
-                                <!-- <div class="input-form2">
-                                    <input type="text"  name="state" placeholder="Where?">
-
-                                    <div class="icon">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                </div>
-                                <div class="select-form">
-                                    <div class="select-itms">
-                                        <select name="select" id="select1">
-                                            <option value="">Category</option>
-                                            <option value="">Catagories One</option>
-                                            <option value="">Catagories Two</option>
-                                            <option value="">Catagories Three</option>
-                                            <option value="">Catagories Four</option>
-                                        </select>
-                                    </div>
-                                </div> -->
-                                <div class="search-form">
-                                    <a href="#" onclick="document.getElementById('jobsearch').submit()"><i class="fas fa-search"></i> Search</a>
-                                </div>		
-                            </form>
-                        </div>
+                        
                         <div class="col-lg-12">
                             <div class="popular-search text-center pt-30">
                                 <ul>
-                                    <li><p>Popular search:</p></li>
+                                    <li><p>Popular searches:</p></li>
                                     <li><a href="#">#User experience designer</a></li>
                                     <li><a href="#">#Marketing</a></li>
                                     <li><a href="#">#Programmer</a></li>
